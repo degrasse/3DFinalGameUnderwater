@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CowScript : MonoBehaviour {
 
-	private float alphaDelta = 0.005f;
+	private float alphaDelta = 0.001f;
 
 	public Material cowMat;
 	// Use this for initialization
@@ -17,9 +17,9 @@ public class CowScript : MonoBehaviour {
 	void Update () {
 		
 		if (cowMat.color.a < 0)
-			alphaDelta = 0.005f;
+			alphaDelta = 0.001f;
 		if (cowMat.color.a > 1f)
-			alphaDelta = -0.005f;
+			alphaDelta = -0.1f;
 		
 		cowMat.color = new Color (cowMat.color.r, cowMat.color.g, cowMat.color.b, cowMat.color.a + alphaDelta);
 	}
