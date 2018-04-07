@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vignette: {fileID: 2142964971}
-  initOxygen: 100
+  initOxygen: 10000
   minVignetteXScale: 30
   minVignetteYScale: 30
 --- !u!4 &369118147
