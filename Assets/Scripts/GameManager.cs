@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour {
 				currentVignette = 1;
 			}
 
-			vignette.transform.localScale -= new Vector3(0.007f,0.007f,0);
+			vignette.transform.localScale -= new Vector3(0.07f,0.07f,0);
 
 			/*
 			if (vignetteFrameCount == 20) {
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour {
 			}
 			//*/
 			vignetteFrameCount++;
-			Debug.Log ("50%");
+			//Debug.Log ("50%");
 		}
 		else if (oxyRatio > .25) {
 			if (currentVignette != 2) {
@@ -73,21 +73,21 @@ public class GameManager : MonoBehaviour {
 				vignetteFrameCount = 0;
 				srVignette.color = Random.ColorHSV ();
 			}
-			Debug.Log ("25%");
+			//Debug.Log ("25%");
 		} else if (oxyRatio > 0.01) {
 			if (currentVignette != 3) {
 				vignetteFrameCount = 0;
 				currentVignette = 3;
 			}
 
-			vignette.transform.localScale -= new Vector3(0.05f,0.05f,0);
+			vignette.transform.localScale -= new Vector3(0.1f,0.1f,0);
 
 			if (vignetteFrameCount == 5) {
 				vignetteFrameCount = 0;
 				srVignette.color = Random.ColorHSV ();
 			}
 			vignetteFrameCount++;
-			Debug.Log ("0.0001%"); 
+			//Debug.Log ("0.0001%"); 
 		}
 		else {
 			if (currentVignette != 4) {
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour {
 				currentVignette = 4;
 			}
 
-			vignette.transform.localScale -= new Vector3(0.1f,0.1f,0);
+			vignette.transform.localScale -= new Vector3(0.3f,0.3f,0);
 
 			srVignette.color = Random.ColorHSV ();
 			
