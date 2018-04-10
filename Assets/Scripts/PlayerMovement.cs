@@ -53,26 +53,21 @@ public class PlayerMovement : MonoBehaviour {
 		if (up != 0 && down == 0) {
 			if (currentAngle > -verticalLookAngle) {
 				look = (-verticalLookAngle - currentAngle) * verticalLookSpeed;
-				//Debug.Log ("Up: " + look + "  " + currentAngle);
 			}
 		} else if (up == 0 && down != 0) {
 			if (currentAngle < verticalLookAngle) {
 				look = (verticalLookAngle - currentAngle) * verticalLookSpeed;
-				//Debug.Log ("Down: " + look + "  " + currentAngle);
 			}
 		} else {
 			if (currentAngle != 0) {
 				look = (0 - currentAngle) * verticalLookSpeed;
-				//look = -look;
-				//transform.Rotate (-look , 0, 0);
-				//Debug.Log ("Flat: " + look + "  " + currentAngle);
 			}
 		}
 		camera.transform.Rotate (look, 0, 0);
 		look = 0;
 		transform.Rotate (0, spinR - spinL, 0);
 		//transform.Translate (0, up - down, forward);
-		//rb.AddTorque(0,spinR-spinL,0);
+		//rb.AddRelativeTorque(0,spinR-spinL,0);
 		//rb.velocity = new Vector3 (0, up - down, forward);
 		rb.AddRelativeForce (0, up - down, forward);
 
