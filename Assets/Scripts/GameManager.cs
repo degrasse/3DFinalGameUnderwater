@@ -3,110 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-	public GameObject vignette;
-	public int initOxygen;
-	public float minVignetteXScale, minVignetteYScale;
+	public GameObject playerLight;
+	public float initOxygen, minLightAngle, minLightIntensity;
 
-	private float oxygenLeft, initVignetteYScale, initVignetteXScale;
-	private SpriteRenderer srVignette;
-	private int currentVignette, vignetteFrameCount;
+	private Light spotLight;
+	private float oxygenLeft;
+
 	void Start () {
 		oxygenLeft = initOxygen;
-		srVignette = vignette.GetComponent<SpriteRenderer> ();
-		currentVignette = 0;
-		vignetteFrameCount = 0;
-		initVignetteXScale = vignette.transform.localScale.x;
-		initVignetteYScale = vignette.transform.localScale.y;
+		spotLight = playerLight.GetComponent<Light> ();
+		spotLight.type = LightType.Spot;
 	}
 
 	void Update () {
-		oxygenLeft -= 1;
-		updateVignette ();
+		oxygenLeft -= Time.deltaTime;
+		updatePlayerLight ();
 	}
 
-
-	void updateMaterial(){
+	void updatePlayerLight (){
 		
-	}
+		///*
+		if (oxygenLeft > 45) { //set initial light
+			spotLight.spotAngle = 120;
+			spotLight.color = Color.white;
+			spotLight.intensity = 3f;
+		} else if (oxygenLeft > 5) {
+			spotLight.spotAngle = ((120f - minLightAngle) * ((oxygenLeft - 5f) / 40f) + minLightAngle); //slowly shrink light angle
+			if (oxygenLeft <= 15) {
+				spotLight.spotAngle += 5f * Mathf.Sin ((oxygenLeft-15f) * 2);//pulse light angle
+				spotLight.intensity = 3f + .5f * Mathf.Sin ((oxygenLeft-15f));
 
-
-	void updateVignette (){
-		srVignette.flipX = !srVignette.flipX;
-		float oxyRatio = oxygenLeft / initOxygen;
-
-		if (oxyRatio > .75) {
-			if (currentVignette != 0) {
-				vignetteFrameCount = 0;
-				currentVignette = 0;
-				srVignette.color = Color.black;
-				vignette.transform.localScale = new Vector3 (initVignetteXScale, initVignetteYScale, 1.0f);
 			}
-
-			vignetteFrameCount++;
-		}
-		else if (oxyRatio > .5) {
-			if (currentVignette != 1) {
-				vignetteFrameCount = 0;
-				currentVignette = 1;
-			}
-
-			vignette.transform.localScale -= new Vector3(0.07f,0.07f,0);
-
-			/*
-			if (vignetteFrameCount == 20) {
-				vignetteFrameCount = 0;
-				srVignette.color = Random.ColorHSV ();
-			}
-			//*/
-			vignetteFrameCount++;
-			//Debug.Log ("50%");
-		}
-		else if (oxyRatio > .25) {
-			if (currentVignette != 2) {
-				vignetteFrameCount = 0;
-				currentVignette = 2;
-			}
-
-			vignette.transform.localScale -= new Vector3(0.02f,0.02f,0);
-
-			if (vignetteFrameCount == 10) {
-				vignetteFrameCount = 0;
-				srVignette.color = Random.ColorHSV ();
-			}
-			//Debug.Log ("25%");
-		} else if (oxyRatio > 0.01) {
-			if (currentVignette != 3) {
-				vignetteFrameCount = 0;
-				currentVignette = 3;
-			}
-
-			vignette.transform.localScale -= new Vector3(0.1f,0.1f,0);
-
-			if (vignetteFrameCount == 5) {
-				vignetteFrameCount = 0;
-				srVignette.color = Random.ColorHSV ();
-			}
-			vignetteFrameCount++;
-			//Debug.Log ("0.0001%"); 
+		} else if (oxygenLeft > 0.00001) {
+			spotLight.intensity = .1f;
+			spotLight.bounceIntensity = .5f;
+			spotLight.color = new Color(UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256));
 		}
 		else {
-			if (currentVignette != 4) {
-				vignetteFrameCount = 0;
-				currentVignette = 4;
-			}
-
-			vignette.transform.localScale -= new Vector3(0.3f,0.3f,0);
-
-			srVignette.color = Random.ColorHSV ();
-			
-			vignetteFrameCount++;
-		}
-
-		if (vignette.transform.localScale.x < minVignetteXScale) {
-			vignette.transform.localScale = new Vector3(minVignetteXScale,vignette.transform.localScale.y,1.0f);
-		}
-		if (vignette.transform.localScale.y < minVignetteYScale) {
-			vignette.transform.localScale = new Vector3(vignette.transform.localScale.x,minVignetteYScale,1.0f);
-		}
+			//shrink to minLightAngle and Red lower intensity
+			spotLight.spotAngle = minLightAngle;
+			spotLight.color = Color.red;
+			spotLight.intensity = 2f;
+		}//*/
 	}
 }
