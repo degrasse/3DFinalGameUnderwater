@@ -60,7 +60,7 @@
 				col.r = 0;
 				col.g = .3;
 				col.b = 0;
-				col.a = 0;
+				col.a = 1;
 				return col;
 			}
 

@@ -52,6 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLight: {fileID: 0}
-  initOxygen: 60
+  initOxygen: 90
   minLightAngle: 30
   minLightIntensity: 1
