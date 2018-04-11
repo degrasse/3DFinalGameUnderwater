@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-	public float verticalSpeed, horizontalSpeed, rotationalSpeed,verticalLookAngle, verticalLookSpeed;
+	public float verticalSpeed, horizontalSpeed, rotationalSpeed,verticalLookAngle, verticalLookSpeed, debugMoveSpeed;
 	public GameObject camera;
+
+	private GameManager gM;
 	private float up, down, spinL, spinR, forward, look, currentAngle;
 	private Rigidbody rb;
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
+	}
+
+	void Awake() {
+		gM = GameObject.Find ("GameManager").GetComponent<GameManager>();
+		if (gM == null) {
+			Debug.Log ("Add Game Manager to scene");
+		}
 	}
 	
 	// Update is called once per frame
@@ -48,6 +57,14 @@ public class PlayerMovement : MonoBehaviour {
 			forward = 0;
 		}
 
+		if (Input.GetKey (KeyCode.V)) {
+			forward = debugMoveSpeed;
+		}
+
+		if (Input.GetKey(KeyCode.O)) {
+			gM.ResetOxygen ();
+		}
+
 
 		currentAngle = camera.transform.rotation.eulerAngles.x;
 		if (currentAngle > 180) {
@@ -74,6 +91,13 @@ public class PlayerMovement : MonoBehaviour {
 		//rb.AddRelativeTorque(0,spinR-spinL,0);
 		//rb.velocity = new Vector3 (0, up - down, forward);
 		rb.AddRelativeForce (0, up - down, forward);
+	}
 
+
+	void OnTriggerEnter(Collider coll){
+		if (coll.gameObject.tag.Equals ("Oxygen")) {
+			gM.ResetOxygen ();
+			Destroy(coll.gameObject);
+		}
 	}
 }

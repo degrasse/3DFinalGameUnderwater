@@ -50,14 +50,15 @@ public class GameManager : MonoBehaviour {
 
 			}
 		} else if (oxygenLeft > 0.00001) {
-			spotLight.intensity = .1f;
-			spotLight.bounceIntensity = .5f;
+			spotLight.spotAngle = 90f;
+			spotLight.intensity = .01f;
 			spotLight.color = new Color(UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256));
 		}
 		else {
-			spotLight.spotAngle = minLightAngle;
+			//spotLight.spotAngle = minLightAngle;
 			spotLight.color = Color.red;
-			spotLight.intensity = 2f;
+			spotLight.intensity = 5f;
+
 		}//*/
 	}
 
@@ -83,4 +84,10 @@ public class GameManager : MonoBehaviour {
 	public void RestartScene(){
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 	}
+
+	public void ResetOxygen(){
+		//Debug.Log ("Success");
+		oxygenLeft = initOxygen;
+	}
+
 }
