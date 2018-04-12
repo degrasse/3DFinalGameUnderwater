@@ -74,14 +74,23 @@ public class PlayerMovement : MonoBehaviour {
 		if (up != 0 && down == 0) {
 			if (currentAngle > -verticalLookAngle) {
 				look = (-verticalLookAngle - currentAngle) * verticalLookSpeed;
+				if (look > -.005) {
+					look = (-verticalLookAngle - currentAngle);
+				}
 			}
 		} else if (up == 0 && down != 0) {
 			if (currentAngle < verticalLookAngle) {
 				look = (verticalLookAngle - currentAngle) * verticalLookSpeed;
+				if (look < .005) {
+					look = (verticalLookAngle - currentAngle);
+				}
 			}
 		} else {
 			if (currentAngle != 0) {
 				look = (0 - currentAngle) * verticalLookSpeed;
+				if (look < .005 && look > -.005) {
+					look = (0 - currentAngle);
+				}
 			}
 		}
 		camera.transform.Rotate (look, 0, 0);
