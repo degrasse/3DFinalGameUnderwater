@@ -5,17 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	public GameObject playerLight;
+	public GameObject[] oxygenTanks;
 	public float initOxygen, minLightAngle, minLightIntensity;
 
 	private GameObject pauseMenu;
 	private bool paused;
 	private Light spotLight;
 	private float oxygenLeft;
-
+	private int currentTank;
 	void Start () {
 		oxygenLeft = initOxygen;
 		spotLight = playerLight.GetComponent<Light> ();
 		spotLight.type = LightType.Spot;
+		currentTank = 0;
+		if (oxygenTanks.Length == 0) {
+			Debug.Log ("No Oxygen Tanks");
+		} else {
+			for (int i = 1; i < oxygenTanks.Length; i++) {
+				oxygenTanks [i].SetActive (false);
+			}
+		}
 	}
 
 	void Awake() {
@@ -90,4 +99,11 @@ public class GameManager : MonoBehaviour {
 		oxygenLeft = initOxygen;
 	}
 
+	public void HitOxygenTank(){
+		ResetOxygen ();
+		if (currentTank + 1 < oxygenTanks.Length) {
+			oxygenTanks [currentTank + 1].SetActive (true);
+			currentTank++;
+		}
+	}
 }

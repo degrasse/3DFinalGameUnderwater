@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 	public float verticalSpeed, horizontalSpeed, rotationalSpeed,verticalLookAngle, verticalLookSpeed, debugMoveSpeed;
-	public GameObject camera;
+	public GameObject playerCamera;
 
 	private GameManager gM;
 	private float up, down, spinL, spinR, forward, look, currentAngle;
@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 
-		currentAngle = camera.transform.rotation.eulerAngles.x;
+		currentAngle = playerCamera.transform.rotation.eulerAngles.x;
 		if (currentAngle > 180) {
 			currentAngle -= 360;
 		}
@@ -74,17 +74,26 @@ public class PlayerMovement : MonoBehaviour {
 		if (up != 0 && down == 0) {
 			if (currentAngle > -verticalLookAngle) {
 				look = (-verticalLookAngle - currentAngle) * verticalLookSpeed;
+				if (look > -.005) {
+					look = (-verticalLookAngle - currentAngle);
+				}
 			}
 		} else if (up == 0 && down != 0) {
 			if (currentAngle < verticalLookAngle) {
 				look = (verticalLookAngle - currentAngle) * verticalLookSpeed;
+				if (look < .005) {
+					look = (verticalLookAngle - currentAngle);
+				}
 			}
 		} else {
 			if (currentAngle != 0) {
 				look = (0 - currentAngle) * verticalLookSpeed;
+				if (look < .005 && look > -.005) {
+					look = (0 - currentAngle);
+				}
 			}
 		}
-		camera.transform.Rotate (look, 0, 0);
+		playerCamera.transform.Rotate (look, 0, 0);
 		look = 0;
 		transform.Rotate (0, spinR - spinL, 0);
 		//transform.Translate (0, up - down, forward);
@@ -96,7 +105,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void OnTriggerEnter(Collider coll){
 		if (coll.gameObject.tag.Equals ("Oxygen")) {
-			gM.ResetOxygen ();
+			gM.HitOxygenTank ();
 			Destroy(coll.gameObject);
 		}
 	}
