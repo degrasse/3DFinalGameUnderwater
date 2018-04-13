@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void OnTriggerEnter(Collider coll){
 		if (coll.gameObject.tag.Equals ("Oxygen")) {
-			gM.ResetOxygen ();
+			gM.HitOxygenTank ();
 			Destroy(coll.gameObject);
 		}
 	}
