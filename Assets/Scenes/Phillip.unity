@@ -246,11 +246,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114197756807281660, guid: eeb9c1fbc23f79f42b8a21ef268fbf92,
-        type: 2}
-      propertyPath: oxygenTanks.Array.size
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 4026550495139558, guid: eeb9c1fbc23f79f42b8a21ef268fbf92, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -496,12 +491,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114784817316869546, guid: c1442e5027d212244a5ce80004b8e2b0,
+    - target: {fileID: 114088924455290050, guid: c1442e5027d212244a5ce80004b8e2b0,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 369118146}
-    - target: {fileID: 114088924455290050, guid: c1442e5027d212244a5ce80004b8e2b0,
+    - target: {fileID: 114784817316869546, guid: c1442e5027d212244a5ce80004b8e2b0,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

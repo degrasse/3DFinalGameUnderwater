@@ -52,6 +52,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLight: {fileID: 0}
-  initOxygen: 90
+  oxygenTanks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  initOxygen: 60
   minLightAngle: 30
   minLightIntensity: 1
