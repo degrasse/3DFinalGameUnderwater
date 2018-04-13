@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 	public float verticalSpeed, horizontalSpeed, rotationalSpeed,verticalLookAngle, verticalLookSpeed, debugMoveSpeed;
-	public GameObject camera;
+	public GameObject playerCamera;
 
 	private GameManager gM;
 	private float up, down, spinL, spinR, forward, look, currentAngle;
@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 
-		currentAngle = camera.transform.rotation.eulerAngles.x;
+		currentAngle = playerCamera.transform.rotation.eulerAngles.x;
 		if (currentAngle > 180) {
 			currentAngle -= 360;
 		}
@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
 				}
 			}
 		}
-		camera.transform.Rotate (look, 0, 0);
+		playerCamera.transform.Rotate (look, 0, 0);
 		look = 0;
 		transform.Rotate (0, spinR - spinL, 0);
 		//transform.Translate (0, up - down, forward);

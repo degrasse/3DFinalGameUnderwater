@@ -569,13 +569,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c33e0b93779ae44b42842e7ef23ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalSpeed: 3000
-  horizontalSpeed: 7500
+  verticalSpeed: 3500
+  horizontalSpeed: 5000
   rotationalSpeed: 3
   verticalLookAngle: 30
   verticalLookSpeed: 0.05
   debugMoveSpeed: 15000
-  camera: {fileID: 1845726280359900}
+  playerCamera: {fileID: 1845726280359900}
 --- !u!114 &114742004988292008
 MonoBehaviour:
   m_ObjectHideFlags: 1

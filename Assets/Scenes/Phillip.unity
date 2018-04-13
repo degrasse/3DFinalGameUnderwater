@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &180568639 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1845726280359900, guid: c1442e5027d212244a5ce80004b8e2b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1109209120}
 --- !u!1001 &241930026
 Prefab:
   m_ObjectHideFlags: 0
@@ -451,6 +456,21 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 369118146}
+    - target: {fileID: 114600638328799170, guid: c1442e5027d212244a5ce80004b8e2b0,
+        type: 2}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 180568639}
+    - target: {fileID: 114600638328799170, guid: c1442e5027d212244a5ce80004b8e2b0,
+        type: 2}
+      propertyPath: verticalSpeed
+      value: 3500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114600638328799170, guid: c1442e5027d212244a5ce80004b8e2b0,
+        type: 2}
+      propertyPath: horizontalSpeed
+      value: 5000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1442e5027d212244a5ce80004b8e2b0, type: 2}
   m_IsPrefabParent: 0
