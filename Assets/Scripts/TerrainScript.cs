@@ -19,6 +19,13 @@ public class TerrainScript : MonoBehaviour {
 			(int)(terrain.terrainData.heightmapResolution/* * terrain.terrainData.heightmapResolution*/),
 			(int)(terrain.terrainData.heightmapResolution/* * terrain.terrainData.heightmapResolution*/));
 		//startHeight = terrain.terrainData.heightmapHeight;
+		float[,] flatHeights = origHeights.Clone() as float[,];
+		for (int i = 0; i < flatHeights.GetLength (0); i++) {
+			for (int j = 0; j < flatHeights.GetLength (1); j++) {
+				flatHeights [i, j] = 200.0f/600.0f;
+			}
+		}
+		terrain.terrainData.SetHeights (0, 0, flatHeights);
 	}
 
 	void raiseSquare(Vector3 point, int radius, float h){
@@ -52,10 +59,23 @@ public class TerrainScript : MonoBehaviour {
 			for (int i = 0; i < newheights.GetLength (0); i++) {
 				float newheight = (waveAmplitude * Mathf.Sin (waveFrequency * ((i * 1.0f / terrain.terrainData.size.x) + waveTimeConstant * dTime)));
 				for (int j = 0; j < newheights.GetLength (1); j++) {
-					newheights [i, j] += newheight;
+					newheights [i, j] += newheight + (waveAmplitude * Mathf.Sin (waveFrequency * ((j * 1.0f / terrain.terrainData.size.x) + waveTimeConstant * dTime)));
 				}
 			}
 			terrain.terrainData.SetHeights (0, 0, newheights);
+			yield return new WaitForSeconds (0.01f);
+		}
+	}
+
+	IEnumerator RaiseFromFlat(){
+		float[,] newHeights = origHeights.Clone () as float[,];
+		for (int c = 0; c < 100; c++) {
+			for (int i = 0; i < origHeights.GetLength (0); i++) {
+				for (int j = 0; j < origHeights.GetLength (1); j++) {
+					newHeights[i,j] = 200.0f/600.0f + (origHeights[i,j] - 200.0f/600.0f) * ((c + 1)/100.0f);
+				}
+			}
+			terrain.terrainData.SetHeights (0, 0, newHeights);
 			yield return new WaitForSeconds (0.01f);
 		}
 	}
@@ -70,6 +90,9 @@ public class TerrainScript : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (KeyCode.W)) {
 			StartCoroutine (WaveForSeconds (20));
+		}
+		if (Input.GetKeyDown (KeyCode.H)) {
+			StartCoroutine (RaiseFromFlat ());
 		}
 	}
 }
