@@ -10,6 +10,9 @@ public class TerrainScript : MonoBehaviour {
 
 	private Terrain terrain;
 	private float[,] origHeights;
+
+	private const float terrainMaxHeight = 600f;
+	private const float terrainFlatHeight = 200f / terrainMaxHeight;
 	//private float startHeight;
 
 	// Use this for initialization
@@ -22,7 +25,7 @@ public class TerrainScript : MonoBehaviour {
 		float[,] flatHeights = origHeights.Clone() as float[,];
 		for (int i = 0; i < flatHeights.GetLength (0); i++) {
 			for (int j = 0; j < flatHeights.GetLength (1); j++) {
-				flatHeights [i, j] = 200.0f/600.0f;
+				flatHeights [i, j] = terrainFlatHeight;
 			}
 		}
 		terrain.terrainData.SetHeights (0, 0, flatHeights);
@@ -68,18 +71,23 @@ public class TerrainScript : MonoBehaviour {
 	}
 
 	IEnumerator RaiseFromFlat(){
+		int duration = 70;
+		int atanGrade = 6;
+		float atanHeight = 2.55f;
+		float rumbleMag = 1.0f / 4800.0f;
+
 		float[,] newHeights = origHeights.Clone () as float[,];
-		for (int c = 0; c < 70; c++) {
-			float c2 = ((c + 1) / 70.0f);
+		for (int c = 0; c < duration; c++) {
+			float c2 = ((c + 1) / (float)(duration));
 			//float t = (1 - c2) * ((1 - c2) * c2 + c2) + c2 * ((c2 + 1) * c2 - c2 + 1);
 			//float t = (Mathf.Atan(4*c2 - 2) / 2.25f) + 0.5f;
-			float t = (Mathf.Atan(6*c2 - 3) / 2.55f) + 0.5f;
+			float t = (Mathf.Atan(atanGrade*c2 - atanGrade * 0.5f) / atanHeight) + 0.5f;
 			float trumble = -0.5f * Mathf.Cos (6.28f * c2) + 0.5f;
 			//float rumble = (Random.value - 0.5f) * trumble / 4800.0f;
 			for (int i = 0; i < origHeights.GetLength (0); i++) {
 				for (int j = 0; j < origHeights.GetLength (1); j++) {
-					float rumble = (Random.value - 0.5f) * trumble / 4800.0f;
-					newHeights[i,j] = 200.0f/600.0f + (origHeights[i,j] - 200.0f/600.0f) * t + rumble;
+					float rumble = (Random.value - 0.5f) * trumble * rumbleMag;
+					newHeights[i,j] = terrainFlatHeight + (origHeights[i,j] - terrainFlatHeight) * t + rumble;
 				}
 			}
 			terrain.terrainData.SetHeights (0, 0, newHeights);
