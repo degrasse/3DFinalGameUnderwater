@@ -69,15 +69,23 @@ public class TerrainScript : MonoBehaviour {
 
 	IEnumerator RaiseFromFlat(){
 		float[,] newHeights = origHeights.Clone () as float[,];
-		for (int c = 0; c < 100; c++) {
+		for (int c = 0; c < 70; c++) {
+			float c2 = ((c + 1) / 70.0f);
+			//float t = (1 - c2) * ((1 - c2) * c2 + c2) + c2 * ((c2 + 1) * c2 - c2 + 1);
+			//float t = (Mathf.Atan(4*c2 - 2) / 2.25f) + 0.5f;
+			float t = (Mathf.Atan(6*c2 - 3) / 2.55f) + 0.5f;
+			float trumble = -0.5f * Mathf.Cos (6.28f * c2) + 0.5f;
+			//float rumble = (Random.value - 0.5f) * trumble / 4800.0f;
 			for (int i = 0; i < origHeights.GetLength (0); i++) {
 				for (int j = 0; j < origHeights.GetLength (1); j++) {
-					newHeights[i,j] = 200.0f/600.0f + (origHeights[i,j] - 200.0f/600.0f) * ((c + 1)/100.0f);
+					float rumble = (Random.value - 0.5f) * trumble / 4800.0f;
+					newHeights[i,j] = 200.0f/600.0f + (origHeights[i,j] - 200.0f/600.0f) * t + rumble;
 				}
 			}
 			terrain.terrainData.SetHeights (0, 0, newHeights);
 			yield return new WaitForSeconds (0.01f);
 		}
+		terrain.terrainData.SetHeights (0, 0, origHeights);
 	}
 	
 	// Update is called once per frame

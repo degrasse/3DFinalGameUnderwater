@@ -904,9 +904,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e42b10e2e254718b42606a30dad8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveAmplitude: 0.0005
+  waveAmplitude: 0.0002
   waveTimeConstant: 0.01
-  waveFrequency: 300
+  waveFrequency: 600
 --- !u!1 &1557116297
 GameObject:
   m_ObjectHideFlags: 0
