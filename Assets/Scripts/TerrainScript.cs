@@ -7,6 +7,9 @@ public class TerrainScript : MonoBehaviour {
 	public float waveAmplitude;
 	public float waveTimeConstant;
 	public float waveFrequency;
+	public float waveSpeed;
+
+	public float granularity;
 
 	private Terrain terrain;
 	private float[,] origHeights;
@@ -55,18 +58,22 @@ public class TerrainScript : MonoBehaviour {
 	}
 
 	IEnumerator Wave(){
+		float waitTime = 1.0f / waveSpeed;
+		int grainSize = Mathf.CeilToInt(1.0f / granularity);
 		float startTime = Time.time;
 		while (true) {
 			float dTime = Time.time - startTime;
 			float[,] newheights = origHeights.Clone() as float[,];
-			for (int i = 0; i < newheights.GetLength (0); i++) {
+			for (int i = 0; i < newheights.GetLength (0) - (grainSize - 1); i+= grainSize) {
 				float newheight = (waveAmplitude * Mathf.Sin (waveFrequency * ((i * 1.0f / terrain.terrainData.size.x) + waveTimeConstant * dTime)));
 				for (int j = 0; j < newheights.GetLength (1); j++) {
-					newheights [i, j] += newheight + (waveAmplitude * Mathf.Sin (waveFrequency * ((j * 1.0f / terrain.terrainData.size.x) + waveTimeConstant * dTime)));
+					for(int i2 = i; i2 < i + grainSize; i2++){
+						newheights [i2, j] += newheight;// + (waveAmplitude * Mathf.Sin (waveFrequency * ((j * 1.0f / terrain.terrainData.size.x) + waveTimeConstant * dTime)));
+					}
 				}
 			}
 			terrain.terrainData.SetHeights (0, 0, newheights);
-			yield return new WaitForSeconds (0.01f);
+			yield return new WaitForSeconds (waitTime);
 		}
 	}
 

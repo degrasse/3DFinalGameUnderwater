@@ -907,6 +907,8 @@ MonoBehaviour:
   waveAmplitude: 0.0002
   waveTimeConstant: 0.01
   waveFrequency: 600
+  waveSpeed: 10
+  granularity: 0.5
 --- !u!1 &1557116297
 GameObject:
   m_ObjectHideFlags: 0

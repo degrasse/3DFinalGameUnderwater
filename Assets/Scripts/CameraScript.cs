@@ -39,7 +39,7 @@ public class CameraScript : MonoBehaviour {
 	IEnumerator Shake(){
 		while (true) {
 			Vector3 campos = player.transform.position + offset;
-			Vector3 newpos = campos + Random.insideUnitSphere * 0.3f;
+			Vector3 newpos = campos + Random.insideUnitSphere * 0.1f;
 			transform.position = newpos;
 			yield return new WaitForSeconds(0.01f);
 		}
