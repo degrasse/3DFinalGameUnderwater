@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TerrainScript : MonoBehaviour {
 
+	public GameObject player;
+
 	public float waveAmplitude;
 	public float waveTimeConstant;
 	public float waveFrequency;
@@ -13,7 +15,11 @@ public class TerrainScript : MonoBehaviour {
 
 	private Terrain terrain;
 	private float[,] origHeights;
+	private float heightMapWidth;
+	private float heightMapLength;
 
+	private const float terrainWidth = 500f;
+	private const float terrainLength = 500f;
 	private const float terrainMaxHeight = 600f;
 	private const float terrainFlatHeight = 200f / terrainMaxHeight;
 	//private float startHeight;
@@ -25,6 +31,8 @@ public class TerrainScript : MonoBehaviour {
 			(int)(terrain.terrainData.heightmapResolution/* * terrain.terrainData.heightmapResolution*/),
 			(int)(terrain.terrainData.heightmapResolution/* * terrain.terrainData.heightmapResolution*/));
 		//startHeight = terrain.terrainData.heightmapHeight;
+		heightMapWidth = origHeights.GetLength (0);
+		heightMapLength = origHeights.GetLength (1);
 		float[,] flatHeights = origHeights.Clone() as float[,];
 		for (int i = 0; i < flatHeights.GetLength (0); i++) {
 			for (int j = 0; j < flatHeights.GetLength (1); j++) {
@@ -98,6 +106,7 @@ public class TerrainScript : MonoBehaviour {
 				}
 			}
 			terrain.terrainData.SetHeights (0, 0, newHeights);
+			updatePlayerPos ();
 			yield return new WaitForSeconds (0.01f);
 		}
 		terrain.terrainData.SetHeights (0, 0, origHeights);
@@ -116,6 +125,50 @@ public class TerrainScript : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (KeyCode.H)) {
 			StartCoroutine (RaiseFromFlat ());
+		}
+		if (Input.GetKeyDown (KeyCode.M)) {
+			updatePlayerPos ();
+		}
+		if (Input.GetKeyDown (KeyCode.T)) {
+			heightTest ();
+		}
+	}
+
+	public void updatePlayerPos(){
+		Vector3 pos = player.transform.position;
+		Vector3 terrainPos = new Vector3 ();
+		Vector3 terrainOrigin = gameObject.transform.position;
+		if (pos.x < terrainOrigin.x || pos.z < terrainOrigin.z ||
+		   pos.x > terrainOrigin.x + terrainWidth || pos.z > terrainOrigin.z + terrainLength) {
+			return;
+		}
+		float[,] heights = terrain.terrainData.GetHeights (0, 0, 
+			(int)(terrain.terrainData.heightmapResolution),
+			(int)(terrain.terrainData.heightmapResolution));
+		terrainPos.x = ((pos.x - terrainOrigin.x) / terrainWidth) * terrain.terrainData.heightmapResolution;
+		terrainPos.z = ((pos.z - terrainOrigin.z) / terrainLength) * terrain.terrainData.heightmapResolution;
+		//Debug.Log ("(" + Mathf.RoundToInt (terrainPos.x) + ", " + Mathf.RoundToInt (terrainPos.z));
+		//Debug.Log (heights [Mathf.RoundToInt (terrainPos.x), Mathf.RoundToInt (terrainPos.z)]);
+		BoxCollider playerColl = player.GetComponent<BoxCollider>();
+		if (pos.y - (playerColl.size.y / 2) + 0.01f < terrainOrigin.y + (heights [Mathf.RoundToInt(terrainPos.z), Mathf.RoundToInt(terrainPos.x)] * terrainMaxHeight)) {
+			player.transform.position = new Vector3 (
+				pos.x,
+				(playerColl.size.y / 2 ) + terrainOrigin.y + (heights [Mathf.RoundToInt (terrainPos.z), Mathf.RoundToInt (terrainPos.x)] * terrainMaxHeight),
+				pos.z);
+		}
+		return;
+	}
+
+	void heightTest(){
+		float[,] heights = terrain.terrainData.GetHeights (0, 0, 
+			(int)(terrain.terrainData.heightmapResolution),
+			(int)(terrain.terrainData.heightmapResolution));
+		for(int i = 0; i < heights.GetLength(0); i++){
+			for(int j = 0; j < heights.GetLength(1); j++){
+				if (heights [i, j] > 0.3334) {
+					Debug.Log (i + "i " + j + "j");
+				}
+			}
 		}
 	}
 }
