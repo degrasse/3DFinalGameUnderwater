@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &339197322
 Light:
   m_ObjectHideFlags: 0
@@ -226,13 +226,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 339197321}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 5.1, y: 6.8, z: -9.1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 953, y: 64, z: 201}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &369118146 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114197756807281660, guid: eeb9c1fbc23f79f42b8a21ef268fbf92,
@@ -318,6 +318,11 @@ Prefab:
       propertyPath: oxygenTanks.Array.data[6]
       value: 
       objectReference: {fileID: 685870190}
+    - target: {fileID: 114197756807281660, guid: eeb9c1fbc23f79f42b8a21ef268fbf92,
+        type: 2}
+      propertyPath: initOxygen
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eeb9c1fbc23f79f42b8a21ef268fbf92, type: 2}
   m_IsPrefabParent: 0
@@ -501,6 +506,31 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 369118146}
+    - target: {fileID: 114600638328799170, guid: c1442e5027d212244a5ce80004b8e2b0,
+        type: 2}
+      propertyPath: horizontalSpeed
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 65511368114660764, guid: c1442e5027d212244a5ce80004b8e2b0,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65511368114660764, guid: c1442e5027d212244a5ce80004b8e2b0,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65511368114660764, guid: c1442e5027d212244a5ce80004b8e2b0,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 65511368114660764, guid: c1442e5027d212244a5ce80004b8e2b0,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1442e5027d212244a5ce80004b8e2b0, type: 2}
   m_IsPrefabParent: 0
