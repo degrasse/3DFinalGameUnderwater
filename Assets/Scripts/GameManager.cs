@@ -40,9 +40,12 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator beginGame(){
 		//Time.timeScale = 0f;
+
 		yield return new WaitForSecondsRealtime (3f);
+		Time.timeScale = 0f;
 		terrScript.InitialRaise();
 		yield return new WaitForSecondsRealtime (10f);
+		Time.timeScale = 1f;
 	}
 
 
@@ -88,7 +91,7 @@ public class GameManager : MonoBehaviour {
 			}
 		} else if (oxygenLeft > 0.00001) {
 			spotLight.spotAngle = 90f;
-			spotLight.intensity = .01f;
+			spotLight.intensity = .005f;
 			spotLight.color = new Color(UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256));
 		}
 		else {

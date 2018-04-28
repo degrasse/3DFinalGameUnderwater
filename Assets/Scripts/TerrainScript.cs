@@ -124,7 +124,7 @@ public class TerrainScript : MonoBehaviour {
 			}
 			terrain.terrainData.SetHeights (0, 0, newHeights);
 			updatePlayerPos ();
-			yield return new WaitForSeconds (0.01f);
+			yield return new WaitForSecondsRealtime (0.01f);
 		}
 		terrain.terrainData.SetHeights (0, 0, origHeights);
 	}
