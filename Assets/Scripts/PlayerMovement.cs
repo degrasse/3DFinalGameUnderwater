@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-	public float verticalSpeed, horizontalSpeed, rotationalSpeed,verticalLookAngle, verticalLookSpeed, debugMoveSpeed;
+	public float verticalSpeed, horizontalSpeed, rotationalSpeed,verticalLookAngle, verticalLookSpeed;
 	public GameObject playerCamera;
 
 	private GameManager gM;
@@ -57,14 +57,6 @@ public class PlayerMovement : MonoBehaviour {
 			forward = 0;
 		}
 
-		if (Input.GetKey (KeyCode.V)) {
-			forward = debugMoveSpeed;
-		}
-
-		if (Input.GetKey(KeyCode.O)) {
-			gM.ResetOxygen ();
-		}
-
 
 		currentAngle = playerCamera.transform.rotation.eulerAngles.x;
 		if (currentAngle > 180) {
@@ -95,10 +87,8 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		playerCamera.transform.Rotate (look, 0, 0);
 		look = 0;
+
 		transform.Rotate (0, spinR - spinL, 0);
-		//transform.Translate (0, up - down, forward);
-		//rb.AddRelativeTorque(0,spinR-spinL,0);
-		//rb.velocity = new Vector3 (0, up - down, forward);
 		rb.AddRelativeForce (0, up - down, forward);
 	}
 
