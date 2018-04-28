@@ -183,7 +183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &339197322
 Light:
   m_ObjectHideFlags: 0
@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 598412452}
   - component: {fileID: 598412451}
   - component: {fileID: 598412450}
+  - component: {fileID: 598412453}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -392,6 +393,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &598412453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 598412449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10e42b10e2e254718b42606a30dad8a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1109209121}
+  waveAmplitude: 0.0002
+  waveTimeConstant: 0.01
+  waveFrequency: 600
+  waveSpeed: 10
+  granularity: 0.5
 --- !u!1001 &610971110
 Prefab:
   m_ObjectHideFlags: 0
@@ -504,6 +522,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1442e5027d212244a5ce80004b8e2b0, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1109209121 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1015736776757346, guid: c1442e5027d212244a5ce80004b8e2b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1109209120}
 --- !u!1 &1150724221 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1689382824008028, guid: 2091f3ae5422da244b0d67513d1e1ec7,
@@ -522,7 +545,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4605071477858814, guid: 2091f3ae5422da244b0d67513d1e1ec7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 7.12
+      value: 7.13
       objectReference: {fileID: 0}
     - target: {fileID: 4605071477858814, guid: 2091f3ae5422da244b0d67513d1e1ec7, type: 2}
       propertyPath: m_LocalPosition.z

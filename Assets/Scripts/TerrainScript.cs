@@ -21,7 +21,7 @@ public class TerrainScript : MonoBehaviour {
 	private const float terrainWidth = 500f;
 	private const float terrainLength = 500f;
 	private const float terrainMaxHeight = 600f;
-	private const float terrainFlatHeight = 200f / terrainMaxHeight;
+	private const float terrainFlatHeight = 0f / terrainMaxHeight;
 	//private float startHeight;
 
 	// Use this for initialization
@@ -59,7 +59,7 @@ public class TerrainScript : MonoBehaviour {
 		terrain.terrainData.SetHeights (0, 0, origHeights);
 	}
 
-	IEnumerator WaveForSeconds(float seconds){
+	public IEnumerator WaveForSeconds(float seconds){
 		Coroutine cr = StartCoroutine (Wave ());
 		yield return new WaitForSeconds (seconds);
 		StopCoroutine (cr);
@@ -85,7 +85,7 @@ public class TerrainScript : MonoBehaviour {
 		}
 	}
 
-	IEnumerator RaiseFromFlat(){
+	public IEnumerator RaiseFromFlat(){
 		int duration = 70;
 		int atanGrade = 6;
 		float atanHeight = 2.55f;

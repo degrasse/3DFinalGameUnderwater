@@ -7,13 +7,20 @@ public class GameManager : MonoBehaviour {
 	public GameObject playerLight;
 	public GameObject[] oxygenTanks;
 	public float initOxygen, minLightAngle, minLightIntensity;
+	public GameObject terrain; 
 
+	private bool onStart;
 	private GameObject pauseMenu;
 	private bool paused;
 	private Light spotLight;
 	private float oxygenLeft;
 	private int currentTank;
+	private TerrainScript terrScript;
+
+
 	void Start () {
+		onStart = false;
+		terrScript = terrain.GetComponent<TerrainScript> ();
 		oxygenLeft = initOxygen;
 		spotLight = playerLight.GetComponent<Light> ();
 		spotLight.type = LightType.Spot;
@@ -21,11 +28,22 @@ public class GameManager : MonoBehaviour {
 		if (oxygenTanks.Length == 0) {
 			Debug.Log ("No Oxygen Tanks");
 		} else {
+			/*
 			for (int i = 1; i < oxygenTanks.Length; i++) {
-				oxygenTanks [i].SetActive (false);
+				oxygenTanks [i].SetActive (true);
 			}
+			//*/
 		}
 	}
+
+	IEnumerator beginGame(){
+		Time.timeScale = 0f;
+		terrScript.RaiseFromFlat ();
+		yield return new WaitForSecondsRealtime (10f);
+		Time.timeScale = 1f;
+	}
+
+
 
 	void Awake() {
 		paused = false;
@@ -56,7 +74,6 @@ public class GameManager : MonoBehaviour {
 			if (oxygenLeft <= 15) {
 				spotLight.spotAngle += 5f * Mathf.Sin ((oxygenLeft-15f) * 2); //pulse light angle
 				spotLight.intensity = 3f + 2f * Mathf.Sin ((oxygenLeft-15f)); //wave of intensity
-
 			}
 		} else if (oxygenLeft > 0.00001) {
 			spotLight.spotAngle = 90f;
