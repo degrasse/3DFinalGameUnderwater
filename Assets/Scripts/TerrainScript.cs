@@ -16,6 +16,7 @@ public class TerrainScript : MonoBehaviour {
 	public float waveSpeed;
 
 	public float granularity;
+	public bool terrainRaising;
 
 	private Terrain terrain;
 	private float[,] origHeights;
@@ -32,6 +33,7 @@ public class TerrainScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		terrainRaising = false;
 		terrain = gameObject.GetComponent<Terrain> ();
 		if (readFromFileAutomatically) {
 			Stream s = File.Open ("Assets/Terrains/maze.ter", FileMode.Open);
@@ -98,11 +100,8 @@ public class TerrainScript : MonoBehaviour {
 		}
 	}
 
-	public void InitialRaise(){
-		test = StartCoroutine (RaiseFromFlat ());
-	}
-
-	IEnumerator RaiseFromFlat(){
+	public IEnumerator RaiseFromFlat(){
+		terrainRaising = true;
 		int duration = 70;
 		int atanGrade = 6;
 		float atanHeight = 2.55f;
@@ -127,6 +126,7 @@ public class TerrainScript : MonoBehaviour {
 			yield return new WaitForSecondsRealtime (0.01f);
 		}
 		terrain.terrainData.SetHeights (0, 0, origHeights);
+		terrainRaising = false;
 	}
 	
 	// Update is called once per frame

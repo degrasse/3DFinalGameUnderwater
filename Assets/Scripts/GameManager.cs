@@ -31,11 +31,18 @@ public class GameManager : MonoBehaviour {
 	IEnumerator beginGame(){
 		yield return new WaitForSecondsRealtime (3f); //wait so player has time to look around and see goals
 		Time.timeScale = 0f; //stop player movement
-		terrScript.InitialRaise(); //raise terrain to put the player in the environment
-		yield return new WaitForSecondsRealtime (10f);
 
+		Coroutine raisingTerrain = StartCoroutine(terrScript.RaiseFromFlat()); //raise terrain to put the player in the environment
+		while (terrScript.terrainRaising) {
+			yield return null;
+		}
 		//<------------------------------------------------------------------------------------------------------------CHANGE TO WAIT TIL RAISE IS DONE THEN RESUME
+
 		//<---------------------------ADD DISABLE OXYGEN TANKS
+
+		for (int i = 1; i < oxygenTanks.Length; i++) { //set all tanks but first to 
+			oxygenTanks [i].SetActive (false);
+		}
 
 		Time.timeScale = 1f; //resume time
 	}
@@ -58,6 +65,7 @@ public class GameManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)) { //if the player hits escape change the pause menu
 			TogglePauseMenu ();
 		}
+		Debug.Log (spotLight.type);
 	}
 
 	void updatePlayerLight (){
@@ -67,6 +75,7 @@ public class GameManager : MonoBehaviour {
 				StopCoroutine (waveCoroutine); //stop it and set to null
 				waveCoroutine = null;
 			}
+			spotLight.range = 75;
 			spotLight.spotAngle = 120; //120 degree angle for light
 			spotLight.color = Color.white; //make sure light color is white
 			spotLight.intensity = 3f; //intensity set to three;
@@ -75,22 +84,21 @@ public class GameManager : MonoBehaviour {
 			if (oxygenLeft <= 15) { //oxygen left ranges from 5 to 15 seconds
 				spotLight.spotAngle += 5f * Mathf.Sin ((oxygenLeft-15f) * 2); //pulse light angle based on sin wave
 				spotLight.intensity = 3f + 2f * Mathf.Sin ((oxygenLeft-15f)); //pulse intensity
-				if (waveCoroutine == null) { //if 
-					waveCoroutine = StartCoroutine(terrScript.Wave());
+				if (waveCoroutine == null) { //if wave hasen't started start it
+					waveCoroutine = StartCoroutine(terrScript.Wave()); //call start coroutine and set it to waveCoroutine so we can end it later
 				}
 			}
-		} else if (oxygenLeft > 0.00001) {
-			spotLight.spotAngle = 90f;
-			spotLight.intensity = .005f;
-			spotLight.color = new Color(UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256));
+		} else if (oxygenLeft > 0.00001) { //oxygen Left ranges from 0.00001 to 5 seconds
+			spotLight.spotAngle = 90f; //set angle to 90
+			spotLight.intensity = .005f; //set intensity very low
+			spotLight.color = new Color(UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256)); //choose random color to flash
 		}
-		else {
-			if (waveCoroutine != null) {
+		else { //oxygen left is less than 0
+			if (waveCoroutine != null) { //if the wave is running end and remove it
 				StopCoroutine (waveCoroutine);
 				waveCoroutine = null;
 			}
-			//spotLight.spotAngle = minLightAngle;
-			spotLight.color = Color.red;
+			spotLight.color = Color.red;//set light to red and increase intensity
 			spotLight.intensity = 5f;
 
 		}//*/
@@ -98,35 +106,34 @@ public class GameManager : MonoBehaviour {
 
 
 	public void TogglePauseMenu() {
-		if (paused)
+		if (paused)  //if game is paused unpause it
 		{
 			pauseMenu.SetActive(!paused);
 			Time.timeScale = 1.0f;
 		}
-		else
+		else //if not paused pause it
 		{
 			pauseMenu.SetActive(!paused);
 			Time.timeScale = 0f;
 		}
-		paused = !paused;
+		paused = !paused; //flip pause variable
 	}
 
-	public void LoadMainMenu(){
+	public void LoadMainMenu(){ //load main menu scene
 		SceneManager.LoadScene("MainMenu");
 	}
 
-	public void RestartScene(){
+	public void RestartScene(){ //reset the current level
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 	}
 
-	public void ResetOxygen(){
-		//Debug.Log ("Success");
+	public void ResetOxygen(){ //set oxygen back to initial amount
 		oxygenLeft = initOxygen;
 	}
 
-	public void HitOxygenTank(){
-		ResetOxygen ();
-		if (currentTank + 1 < oxygenTanks.Length) {
+	public void HitOxygenTank(){ //called on collision with Oxygen tank
+		ResetOxygen (); //call reset
+		if (currentTank + 1 < oxygenTanks.Length) { //activate next Oxygen tank if it exists
 			oxygenTanks [currentTank + 1].SetActive (true);
 			currentTank++;
 		}
