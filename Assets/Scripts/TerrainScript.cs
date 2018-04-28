@@ -131,9 +131,11 @@ public class TerrainScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		/*
 		if (Input.GetKeyDown (KeyCode.F)) {
 			raiseSquare (new Vector3 (100, 0, 100), 4, 0.1f);
 		}
+		*/
 		if (Input.GetKeyDown (KeyCode.R)) {
 			resetHeightMap ();
 		}
@@ -149,9 +151,11 @@ public class TerrainScript : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.T)) {
 			heightTest ();
 		}
+		/*
 		if (Input.GetKeyDown (KeyCode.S)) {
 			saveTerrainToFile ();
 		}
+		*/
 
 	}
 
