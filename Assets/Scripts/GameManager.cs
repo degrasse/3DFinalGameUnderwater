@@ -14,9 +14,12 @@ public class GameManager : MonoBehaviour {
 	private Light spotLight;
 	private float oxygenLeft;
 	private int currentTank;
+	private TerrainScript terrScript;
+	private Coroutine waveCoroutine;
 
 
 	void Start () {
+		waveCoroutine = null;
 		oxygenLeft = initOxygen;
 		spotLight = playerLight.GetComponent<Light> ();
 		spotLight.type = LightType.Spot;
@@ -38,7 +41,7 @@ public class GameManager : MonoBehaviour {
 	IEnumerator beginGame(){
 		//Time.timeScale = 0f;
 		yield return new WaitForSecondsRealtime (3f);
-		terrain.GetComponent<TerrainScript> ().InitialRaise();
+		terrScript.InitialRaise();
 		yield return new WaitForSecondsRealtime (10f);
 	}
 
@@ -48,6 +51,7 @@ public class GameManager : MonoBehaviour {
 		paused = false;
 		pauseMenu = GameObject.Find ("PauseMenu");
 		pauseMenu.SetActive (paused);
+		terrScript = terrain.GetComponent<TerrainScript> ();
 		StartCoroutine (beginGame());
 		Time.timeScale = 1.0f;
 	}
@@ -66,6 +70,10 @@ public class GameManager : MonoBehaviour {
 		
 		///*
 		if (oxygenLeft > 45) { //set initial light
+			if (waveCoroutine != null) {
+				StopCoroutine (waveCoroutine);
+				waveCoroutine = null;
+			}
 			spotLight.spotAngle = 120;
 			spotLight.color = Color.white;
 			spotLight.intensity = 3f;
@@ -74,6 +82,9 @@ public class GameManager : MonoBehaviour {
 			if (oxygenLeft <= 15) {
 				spotLight.spotAngle += 5f * Mathf.Sin ((oxygenLeft-15f) * 2); //pulse light angle
 				spotLight.intensity = 3f + 2f * Mathf.Sin ((oxygenLeft-15f)); //wave of intensity
+				if (waveCoroutine == null) {
+					waveCoroutine = StartCoroutine(terrScript.Wave());
+				}
 			}
 		} else if (oxygenLeft > 0.00001) {
 			spotLight.spotAngle = 90f;
@@ -81,6 +92,10 @@ public class GameManager : MonoBehaviour {
 			spotLight.color = new Color(UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256));
 		}
 		else {
+			if (waveCoroutine != null) {
+				StopCoroutine (waveCoroutine);
+				waveCoroutine = null;
+			}
 			//spotLight.spotAngle = minLightAngle;
 			spotLight.color = Color.red;
 			spotLight.intensity = 5f;
