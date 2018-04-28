@@ -9,18 +9,14 @@ public class GameManager : MonoBehaviour {
 	public float initOxygen, minLightAngle, minLightIntensity;
 	public GameObject terrain; 
 
-	private bool onStart;
 	private GameObject pauseMenu;
 	private bool paused;
 	private Light spotLight;
 	private float oxygenLeft;
 	private int currentTank;
-	private TerrainScript terrScript;
 
 
 	void Start () {
-		onStart = false;
-		terrScript = terrain.GetComponent<TerrainScript> ();
 		oxygenLeft = initOxygen;
 		spotLight = playerLight.GetComponent<Light> ();
 		spotLight.type = LightType.Spot;
@@ -34,13 +30,16 @@ public class GameManager : MonoBehaviour {
 			}
 			//*/
 		}
+
+		//StartCoroutine (beginGame());
 	}
 
+
 	IEnumerator beginGame(){
-		Time.timeScale = 0f;
-		terrScript.RaiseFromFlat ();
+		//Time.timeScale = 0f;
+		yield return new WaitForSecondsRealtime (3f);
+		terrain.GetComponent<TerrainScript> ().InitialRaise();
 		yield return new WaitForSecondsRealtime (10f);
-		Time.timeScale = 1f;
 	}
 
 
@@ -49,6 +48,7 @@ public class GameManager : MonoBehaviour {
 		paused = false;
 		pauseMenu = GameObject.Find ("PauseMenu");
 		pauseMenu.SetActive (paused);
+		StartCoroutine (beginGame());
 		Time.timeScale = 1.0f;
 	}
 

@@ -28,6 +28,8 @@ public class TerrainScript : MonoBehaviour {
 	private const float terrainFlatHeight = 0f / terrainMaxHeight;
 	//private float startHeight;
 
+	private Coroutine test;
+
 	// Use this for initialization
 	void Start () {
 		terrain = gameObject.GetComponent<Terrain> ();
@@ -96,7 +98,11 @@ public class TerrainScript : MonoBehaviour {
 		}
 	}
 
-	public IEnumerator RaiseFromFlat(){
+	public void InitialRaise(){
+		test = StartCoroutine (RaiseFromFlat ());
+	}
+
+	IEnumerator RaiseFromFlat(){
 		int duration = 70;
 		int atanGrade = 6;
 		float atanHeight = 2.55f;
