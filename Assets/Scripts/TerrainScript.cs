@@ -78,7 +78,7 @@ public class TerrainScript : MonoBehaviour {
 		StopCoroutine (cr);
 	}
 
-	IEnumerator Wave(){
+	public IEnumerator Wave(){
 		float waitTime = 1.0f / waveSpeed;
 		int grainSize = Mathf.CeilToInt(1.0f / granularity);
 		float startTime = Time.time;
