@@ -31,11 +31,11 @@ public class StrangerHeadScript : MonoBehaviour {
 	IEnumerator ShakeHead(float duration){
 		Quaternion startRot = gameObject.transform.localRotation;
 		float startTime = Time.time;
-		for (int c = 0; c < duration * 10; c++) {
+		for (int c = 0; c < duration * 20; c++) {
 			float dtime = Time.time - startTime;
 			gameObject.transform.localRotation = Quaternion.AngleAxis(shakeAmp * Mathf.Sin (shakeFreq * dtime), Vector3.right);
 			//gameObject.transform.RotateAround (gameObject.transform.position, new Vector3 (1, 0, 0), shakeAmp * Mathf.Sin (shakeFreq * dtime));
-			yield return new WaitForSeconds (0.1f);
+			yield return new WaitForSeconds (0.05f);
 		}
 	}
 }
