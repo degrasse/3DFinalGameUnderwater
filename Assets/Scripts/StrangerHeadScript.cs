@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class StrangerHeadScript : MonoBehaviour {
 
+	public float shakeFreq;
+	public float shakeAmp;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -15,7 +18,7 @@ public class StrangerHeadScript : MonoBehaviour {
 			StartCoroutine (BobHead (3.0f));
 		}
 		if (Input.GetKeyDown (KeyCode.S)) {
-			StartCoroutine (ShakeHead (3.0f));
+			StartCoroutine (ShakeHead (20.0f));
 		}
 	}
 
@@ -26,10 +29,12 @@ public class StrangerHeadScript : MonoBehaviour {
 	}
 
 	IEnumerator ShakeHead(float duration){
+		Quaternion startRot = gameObject.transform.localRotation;
 		float startTime = Time.time;
 		for (int c = 0; c < duration * 10; c++) {
 			float dtime = Time.time - startTime;
-			gameObject.transform.RotateAround (gameObject.transform.position, new Vector3 (0, 1, 0), Mathf.Sin (dtime));
+			gameObject.transform.localRotation = Quaternion.AngleAxis(shakeAmp * Mathf.Sin (shakeFreq * dtime), Vector3.right);
+			//gameObject.transform.RotateAround (gameObject.transform.position, new Vector3 (1, 0, 0), shakeAmp * Mathf.Sin (shakeFreq * dtime));
 			yield return new WaitForSeconds (0.1f);
 		}
 	}
