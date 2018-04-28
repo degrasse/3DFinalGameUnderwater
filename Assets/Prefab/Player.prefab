@@ -334,7 +334,7 @@ Light:
     m_NormalBias: 0.4
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
+  m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalSpeed: 3500
-  horizontalSpeed: 5000
+  horizontalSpeed: 4000
   rotationalSpeed: 3
   verticalLookAngle: 30
   verticalLookSpeed: 0.05
