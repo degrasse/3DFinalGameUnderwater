@@ -60,6 +60,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  initOxygen: 90
+  initOxygen: 60
   minLightAngle: 30
   minLightIntensity: 1
