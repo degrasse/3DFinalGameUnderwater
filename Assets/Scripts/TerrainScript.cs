@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class TerrainScript : MonoBehaviour {
+
+	public bool readFromFileAutomatically;
 
 	public GameObject player;
 
@@ -27,9 +31,16 @@ public class TerrainScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		terrain = gameObject.GetComponent<Terrain> ();
-		origHeights = terrain.terrainData.GetHeights (0, 0, 
-			(int)(terrain.terrainData.heightmapResolution/* * terrain.terrainData.heightmapResolution*/),
-			(int)(terrain.terrainData.heightmapResolution/* * terrain.terrainData.heightmapResolution*/));
+		if (readFromFileAutomatically) {
+			Stream s = File.Open ("Assets/Terrains/maze.ter", FileMode.Open);
+			BinaryFormatter bf = new BinaryFormatter ();
+			origHeights = (float[,])bf.Deserialize (s);
+			s.Close ();
+		} else {
+			origHeights = terrain.terrainData.GetHeights (0, 0, 
+				(int)(terrain.terrainData.heightmapResolution/* * terrain.terrainData.heightmapResolution*/),
+				(int)(terrain.terrainData.heightmapResolution/* * terrain.terrainData.heightmapResolution*/));
+		}
 		//startHeight = terrain.terrainData.heightmapHeight;
 		heightMapWidth = origHeights.GetLength (0);
 		heightMapLength = origHeights.GetLength (1);
@@ -132,6 +143,17 @@ public class TerrainScript : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.T)) {
 			heightTest ();
 		}
+		if (Input.GetKeyDown (KeyCode.S)) {
+			saveTerrainToFile ();
+		}
+
+	}
+
+	void saveTerrainToFile(){
+		BinaryFormatter bf = new BinaryFormatter ();
+		Stream s = File.Open ("Assets/Terrains/maze.ter", FileMode.Create);
+		bf.Serialize (s, origHeights);
+		s.Close ();
 	}
 
 	public void updatePlayerPos(){
