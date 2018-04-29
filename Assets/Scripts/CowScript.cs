@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class CowScript : MonoBehaviour {
 
+	public Transform playerTransform;
+
 	public float bounceFreq;
 	public float bounceHeight;
 
+	private float currBounceHeight;
 	private float alphaDelta = 0.001f;
 	private float origy;
+	private bool bouncing = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +21,14 @@ public class CowScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.B)) {
-			StartCoroutine (Bounce ());
+		float dist = Mathf.Abs (((Vector3)(new Vector3(gameObject.transform.position.x, origy, gameObject.transform.position.z) - playerTransform.position)).magnitude);
+		if (dist < 60f) {
+			if (!bouncing) {
+				bouncing = true;
+				StartCoroutine (Bounce ());
+			}
+			currBounceHeight = bounceHeight * 1.0f / (dist / 60.0f);
+			//currBounceFreq = bounceFreq * 1.0f / (dist / 60.0f);
 		}
 	}
 
@@ -30,7 +40,7 @@ public class CowScript : MonoBehaviour {
 		while (true) {
 			float dtime = modval - ((bounceFreq * (Time.time - startTime / 100f)) % modval);
 			gameObject.transform.position = new Vector3(gameObject.transform.position.x, 
-				origy + bounceHeight * Mathf.Abs(Mathf.Sin(Mathf.Sqrt(freqmult * (dtime - offsetx)))),
+				origy + currBounceHeight * Mathf.Abs(Mathf.Sin(Mathf.Sqrt(freqmult * (dtime - offsetx)))),
 				gameObject.transform.position.z);
 			yield return new WaitForSeconds (0.01f);
 		}
