@@ -10,12 +10,11 @@ public class EncouragementScript : MonoBehaviour {
 
 	string encouragement1 = "youre doing great kiddo\nyour mother and i are so\nproud";
 	string encouragement2 = "youre trying your best\nand thats all that matters\nxoxo mum";
-	string encouragement3 = "id give you two thumbs\nup if i werent just a disem\nbodied hand sorry im a mess";
 	string[] encs;
 
 	// Use this for initialization
 	void Start () {
-		encs = new string[]{ encouragement1, encouragement2, encouragement3 };
+		encs = new string[]{ encouragement1, encouragement2};
 		tm = GetComponentInChildren<TextMesh> ();
 		tm.text = "";
 	}
@@ -23,7 +22,7 @@ public class EncouragementScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Mathf.Abs (((Vector3)(playerTransform.position - gameObject.transform.position)).magnitude) < 60f) {
-			tm.text = encs[(int)((Time.time / 5) % 3)];
+			tm.text = encs[(int)((Time.time / 3) % 2)];
 		} else {
 			tm.text = "";
 		}

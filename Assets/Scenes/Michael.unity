@@ -776,6 +776,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114155117564213066, guid: f589b0c877a9c4a7d995ba6e3eab6ea8,
+        type: 2}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 535397401}
+    - target: {fileID: 114155117564213066, guid: f589b0c877a9c4a7d995ba6e3eab6ea8,
+        type: 2}
+      propertyPath: bounceFreq
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114155117564213066, guid: f589b0c877a9c4a7d995ba6e3eab6ea8,
+        type: 2}
+      propertyPath: bounceHeight
+      value: 1.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f589b0c877a9c4a7d995ba6e3eab6ea8, type: 2}
   m_IsPrefabParent: 0

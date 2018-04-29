@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class StrangerScript : MonoBehaviour {
 
+	public Transform playerTransform;
+
 	public Vector3 startPos;
 	public Vector3 endPos;
 	public float moveDuration;
+
+	private bool moved = false;
 
 	// Use this for initialization
 	void Start () {
@@ -15,9 +19,13 @@ public class StrangerScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.O)) {
-			GetComponentInChildren<StrangerHeadScript> ().StartShakeHead ();
-			StartCoroutine (Move ());
+		if (!moved) {
+			float dist = Mathf.Abs (((Vector3)(endPos - playerTransform.position)).magnitude);
+			if(dist < 60.0f){
+				moved = true;
+				GetComponentInChildren<StrangerHeadScript> ().StartShakeHead (moveDuration);
+				StartCoroutine (Move ());
+			}
 		}
 	}
 
