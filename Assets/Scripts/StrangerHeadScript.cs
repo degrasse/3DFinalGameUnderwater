@@ -14,12 +14,18 @@ public class StrangerHeadScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		/*
 		if (Input.GetKeyDown (KeyCode.B)) {
 			StartCoroutine (BobHead (3.0f));
 		}
 		if (Input.GetKeyDown (KeyCode.S)) {
 			StartCoroutine (ShakeHead (20.0f));
 		}
+		*/
+	}
+
+	public void StartShakeHead(float duration){
+		StartCoroutine (ShakeHead (duration));
 	}
 
 	IEnumerator BobHead(float duration){

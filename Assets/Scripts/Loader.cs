@@ -11,9 +11,22 @@ public class Loader : MonoBehaviour {
 	}
 	
 	public void Load(){
-	
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
+
+	public void LoadEasy(){ //set easy oxygen amount and load the game
+		GameObject.Find ("OxygenTracker").GetComponent<OxygenTrackerScript> ().setInitOxygen (105, true);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	}
+	public void LoadMedium(){ //set medium oxygen amount and load the game
+		GameObject.Find ("OxygenTracker").GetComponent<OxygenTrackerScript> ().setInitOxygen (90, true);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	}
+	public void LoadHard(){ //set hard oxygen amount and load the game
+		GameObject.Find ("OxygenTracker").GetComponent<OxygenTrackerScript> ().setInitOxygen (75, true);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	}
+
 
 	public void Quit()
 	{
