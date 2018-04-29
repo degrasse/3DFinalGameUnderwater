@@ -9,5 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Michael.unity
     guid: 307355f20bdf04fb687b8f0ab6f40570
   - enabled: 1
+    path: Assets/Scenes/deGrasse.unity
+    guid: 8c92cbfca537a40b7bdae18fac47cb74
+  - enabled: 1
     path: Assets/Scenes/Phillip.unity
     guid: 1e4104ae096540940883066c8b852cb8

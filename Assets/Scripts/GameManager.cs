@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Escape)) { //if the player hits escape change the pause menu
 			TogglePauseMenu ();
 		}
-		Debug.Log (spotLight.type);
 	}
 
 	void updatePlayerLight (){
@@ -120,7 +119,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void LoadMainMenu(){ //load main menu scene
-		SceneManager.LoadScene("MainMenu");
+		SceneManager.LoadScene("deGrasse");
 	}
 
 	public void RestartScene(){ //reset the current level
