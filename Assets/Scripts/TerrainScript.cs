@@ -102,7 +102,7 @@ public class TerrainScript : MonoBehaviour {
 						newheights [i2, j] += newheight;// + (waveAmplitude * Mathf.Sin (waveFrequency * ((j * 1.0f / terrain.terrainData.size.x) + waveTimeConstant * dTime)));
 					}
 					*/
-					newheights [i, j] = newheight;
+					newheights [i, j] += newheight;
 				}
 			}
 			terrain.terrainData.SetHeights (istart, jstart, newheights);
