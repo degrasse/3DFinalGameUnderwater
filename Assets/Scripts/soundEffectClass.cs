@@ -5,10 +5,16 @@ using UnityEngine;
 public class soundEffectClass : MonoBehaviour {
 
 	private AudioSource source;
+
+	//make oxygenlevels private once connected to rest of the game;
 	public float oxygenLevels;
 	public bool updatePitchToOxygen;
 	public bool on;
 	public bool siren;
+
+	private GameObject oxyTracker;
+	private OxygenTrackerScript oxyTrackerScript;
+
 	//volumeControl
 
 	//grabOxygenPercentage
@@ -47,6 +53,10 @@ public class soundEffectClass : MonoBehaviour {
 
 	void Awake (){
 		source = GetComponent<AudioSource>();
+
+		oxyTracker = GameObject.Find ("OxygenTracker");
+		oxyTrackerScript = oxyTracker.GetComponent<OxygenTrackerScript> ();
+		oxyTrackerScript.resetOxygen (); //DELETE
 	
 
 	}
@@ -55,6 +65,7 @@ public class soundEffectClass : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		oxygenLevels = oxyTrackerScript.percentOxygen;
 		if (updatePitchToOxygen) {
 			updatePitch ();
 		}
@@ -70,7 +81,6 @@ public class soundEffectClass : MonoBehaviour {
 
 		}
 			
-	//only update for wavy music
 
 
 	}
@@ -98,14 +108,3 @@ public class soundEffectClass : MonoBehaviour {
 
 
 }
-
-/*
- * 
- * audio ideas: first, can play around with pitch/3d/spread/volume/ different ways of distorting the thang
- * but then also, can have different songs that play based on the different audio 
- * 
- * 
- * 
- * 
- * 
- */
