@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Oxygen
+  - Pick Up
+  - Goal
   layers:
   - Default
   - TransparentFX

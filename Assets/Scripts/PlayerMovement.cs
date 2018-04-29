@@ -97,6 +97,8 @@ public class PlayerMovement : MonoBehaviour {
 		if (coll.gameObject.tag.Equals ("Oxygen")) {
 			gM.HitOxygenTank ();
 			Destroy(coll.gameObject);
+		} else if(coll.gameObject.tag.Equals("Goal")) {
+			gM.GoalReached();
 		}
 	}
 }

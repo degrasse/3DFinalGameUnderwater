@@ -11,10 +11,14 @@ public class MenuButtons : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		MenuPanel.SetActive (true);
-		AudioPanel.SetActive(false);
-		HelpPanel.SetActive(false);
-		InstructionPanel.SetActive(false);
+		if (MenuPanel != null)
+			MenuPanel.SetActive (true);
+		if (AudioPanel != null)
+			AudioPanel.SetActive(false);
+		if (HelpPanel != null)
+			HelpPanel.SetActive(false);
+		if (InstructionPanel != null)
+			InstructionPanel.SetActive(false);
 	}
 
 

@@ -54,9 +54,11 @@ public class GameManager : MonoBehaviour {
 		paused = false;
 		pauseMenu = GameObject.Find ("PauseMenu");
 		pauseMenu.SetActive (paused);
+
 		oxyTracker = GameObject.Find ("OxygenTracker");
 		oxyTrackerScript = oxyTracker.GetComponent<OxygenTrackerScript> ();
 		oxyTrackerScript.resetOxygen ();
+		//Debug.Log ("OxygenReset");
 		terrScript = terrain.GetComponent<TerrainScript> ();
 		StartCoroutine (beginGame()); //start coroutine that sets the game area up properly
 	}
@@ -129,6 +131,10 @@ public class GameManager : MonoBehaviour {
 
 	public void RestartScene(){ //reset the current level
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+	}
+
+	public void GoalReached(){
+		SceneManager.LoadScene ("GameWon");
 	}
 
 	public void HitOxygenTank(){ //called on collision with Oxygen tank
