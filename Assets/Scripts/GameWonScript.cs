@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//Phillip Hetzler
 public class GameWonScript : MonoBehaviour {
 
 	// Use this for initialization
@@ -15,10 +15,10 @@ public class GameWonScript : MonoBehaviour {
 
 	}
 
-	public void LoadMainMenu(){
+	public void LoadMainMenu(){ //load main menu
 		SceneManager.LoadScene ("deGrasse");
 	}
-	public void LoadGame(){
+	public void LoadGame(){ //set infinite oxygen and load game scene
 		GameObject.Find ("OxygenTracker").GetComponent<OxygenTrackerScript> ().setInitOxygen (Mathf.Infinity, true);
 		SceneManager.LoadScene ("Phillip");
 	}

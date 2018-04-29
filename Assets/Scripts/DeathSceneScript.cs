@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//Phillip Hetzler
 public class DeathSceneScript : MonoBehaviour {
 
 	// Use this for initialization
@@ -15,10 +15,10 @@ public class DeathSceneScript : MonoBehaviour {
 		
 	}
 
-	public void LoadMainMenu(){
+	public void LoadMainMenu(){ //load main menu
 		SceneManager.LoadScene ("deGrasse");
 	}
-	public void LoadGame(){
+	public void LoadGame(){ //load game scene
 		SceneManager.LoadScene ("Phillip");
 	}
 
