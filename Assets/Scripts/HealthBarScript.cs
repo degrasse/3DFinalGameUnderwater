@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class HealthBarScript : MonoBehaviour {
 
-
+	private RectTransform rect;
 	private float oxygen;
 	private float updatedScale;
-	private float fullScale = 5.3f;
-	private float minScale = 0f;
+	private float maxYAnchor;
+	private float minYAnchor;
+	//private float fullScale = 5.3f;
+	//private float minScale = 0f;
 
 	//need to grab oxygen percentage from oxygen object
 
@@ -18,9 +20,13 @@ public class HealthBarScript : MonoBehaviour {
 
 
 	void Awake (){
+		
 		oxyTracker = GameObject.Find ("OxygenTracker");
 		oxyTrackerScript = oxyTracker.GetComponent<OxygenTrackerScript> ();
-	
+		rect = this.gameObject.GetComponent<RectTransform> ();
+		maxYAnchor = rect.anchorMax.y;
+		minYAnchor = rect.anchorMin.y;
+
 
 	}
 
@@ -39,11 +45,11 @@ public class HealthBarScript : MonoBehaviour {
 
 		oxygen = oxyTrackerScript.percentOxygen;
 		if (oxygen >= 1) {
-			updatedScale = fullScale;
+			updatedScale = maxYAnchor;
 		} else if (oxygen <= 0) {
-			updatedScale = minScale;
+			updatedScale = minYAnchor;
 		} else {
-			updatedScale = oxygen * fullScale;
+			updatedScale = oxygen * (maxYAnchor - minYAnchor) + minYAnchor;
 		}
 
 		return updatedScale;
@@ -53,8 +59,10 @@ public class HealthBarScript : MonoBehaviour {
 
 	void UpdateSlider(){
 		updatedScale = checkOxygen();
-		Vector3 scale = transform.localScale;
-		scale.x = updatedScale;
-		transform.localScale = scale;
+		//Vector3 scale = transform.localScale;
+		//scale.x = updatedScale;
+		Vector2 temp = new Vector2 (rect.anchorMax.x, updatedScale);
+		rect.anchorMax = temp;
+		//transform.localScale = scale;
 	}
 }
