@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: 46271380ea3c14ba5879750febfdb776
+timeCreated: 1524995200
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature-narwhal_005
+    100002: body
+    100004: fin_L
+    100006: fin_R
+    100008: finTip_L
+    100010: finTip_R
+    100012: head
+    100014: jaw
+    100016: //RootNode
+    100018: Narwhal_005
+    100020: ROOT-pos
+    100022: ROOT-rot
+    100024: tail01
+    100026: tail02
+    100028: tail03
+    100030: tail04
+    100032: tail05
+    100034: tail05_L
+    100036: tail05_R
+    100038: TailCurveController_001
+    100040: tailFin02
+    100042: UBERROT
+    100044: WaterSurface
+    400000: Armature-narwhal_005
+    400002: body
+    400004: fin_L
+    400006: fin_R
+    400008: finTip_L
+    400010: finTip_R
+    400012: head
+    400014: jaw
+    400016: //RootNode
+    400018: Narwhal_005
+    400020: ROOT-pos
+    400022: ROOT-rot
+    400024: tail01
+    400026: tail02
+    400028: tail03
+    400030: tail04
+    400032: tail05
+    400034: tail05_L
+    400036: tail05_R
+    400038: TailCurveController_001
+    400040: tailFin02
+    400042: UBERROT
+    400044: WaterSurface
+    2100000: narwhal-astral__narwhalUV-astral-001_jpg
+    4300000: Narwhal_005
+    7400000: Default Take
+    7400002: ATTACK-delphinidae
+    7400004: BREATHE-delphinidae
+    7400006: DEATH-delphinidae
+    7400008: EAT-delphinidae
+    7400010: EAT-delphinidae-part
+    7400012: FASTER-delphinidae
+    7400014: HURT-delphinidae
+    7400016: IDLE-delphinidae
+    7400018: JUMP-delphinidae
+    7400020: JUMP-NL-delphinidae-NONLOOP
+    7400022: JUMPSPLASH-delphinidae
+    7400024: JUMPSPLASH-NL-delphinidae-NONLOOP
+    7400026: SWIM-003-delphinidae
+    7400028: SWIM-004-delphinidae
+    7400030: SWIM-delphinidae
+    7400032: SWIMLEFT-delphinidae
+    7400034: SWIMRIGHT-delphinidae
+    7400036: SWIMRIGHT-delphinidae_001
+    7400038: TURNLEFT-delphinidae
+    7400040: TURNRIGHT-delphinidae
+    7400042: SWIM-002-delphinidae
+    9500000: //RootNode
+    13700000: Narwhal_005
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

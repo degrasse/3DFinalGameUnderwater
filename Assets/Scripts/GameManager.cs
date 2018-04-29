@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 	public GameObject playerLight; //light that the player uses to see
 	public GameObject[] oxygenTanks; //array of collectible oxygen tanks
-	public float initOxygen, minLightAngle, minLightIntensity; //initial oxygen in seconds, minimum light angle, minimum light intensity
+	public float minLightAngle, minLightIntensity; //initial oxygen in seconds, minimum light angle, minimum light intensity
 	public GameObject terrain; //terrain in game
+
+	private GameObject oxyTracker;
+	private OxygenTrackerScript oxyTrackerScript;
 
 	private GameObject pauseMenu;
 	private bool paused; //tell if game is paused or not
@@ -20,11 +23,9 @@ public class GameManager : MonoBehaviour {
 
 	void Start () { //initialize variables
 		waveCoroutine = null;
-		oxygenLeft = initOxygen;
 		spotLight = playerLight.GetComponent<Light> ();
 		spotLight.type = LightType.Spot;
 		currentTank = 0;
-
 	}
 
 
@@ -53,13 +54,17 @@ public class GameManager : MonoBehaviour {
 		paused = false;
 		pauseMenu = GameObject.Find ("PauseMenu");
 		pauseMenu.SetActive (paused);
+		oxyTracker = GameObject.Find ("OxygenTracker");
+		oxyTrackerScript = oxyTracker.GetComponent<OxygenTrackerScript> ();
+		oxyTrackerScript.resetOxygen ();
 		terrScript = terrain.GetComponent<TerrainScript> ();
 		StartCoroutine (beginGame()); //start coroutine that sets the game area up properly
 	}
 
 	void Update () {
+		oxygenLeft = oxyTrackerScript.oxygenLeft;
 		if (!paused) { //if the game is not paused count down oxygen left
-			oxygenLeft -= Time.deltaTime;
+			//oxygenLeft -= Time.deltaTime;
 			updatePlayerLight (); //update the players spot light
 		}
 		if (Input.GetKeyDown (KeyCode.Escape)) { //if the player hits escape change the pause menu
@@ -126,12 +131,8 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 	}
 
-	public void ResetOxygen(){ //set oxygen back to initial amount
-		oxygenLeft = initOxygen;
-	}
-
 	public void HitOxygenTank(){ //called on collision with Oxygen tank
-		ResetOxygen (); //call reset
+		oxyTrackerScript.resetOxygen();
 		if (currentTank + 1 < oxygenTanks.Length) { //activate next Oxygen tank if it exists
 			oxygenTanks [currentTank + 1].SetActive (true);
 			currentTank++;
