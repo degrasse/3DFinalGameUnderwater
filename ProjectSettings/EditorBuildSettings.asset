@@ -14,9 +14,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Phillip.unity
     guid: 1e4104ae096540940883066c8b852cb8
-  - enabled: 1
-    path: Assets/Scenes/DeathScene.unity
-    guid: 07849651bba9eb548a35da5d9beec2cd
-  - enabled: 1
-    path: Assets/Scenes/GameWon.unity
-    guid: bd329c1181ae8c9408fd96cfad91bf25

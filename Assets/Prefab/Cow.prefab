@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1869092853967790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -63.72, y: 5.54, z: -2.44}
+  m_LocalPosition: {x: -63.72, y: 6.2, z: -2.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4257052333552310}
@@ -270,6 +270,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6279d83ec64004ab0b248081770c1690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceFreq: 2.5
-  bounceHeight: 1.25
   cowMat: {fileID: 2100000, guid: 304e65b431ab7494297f2e3d28b9e1a2, type: 2}
