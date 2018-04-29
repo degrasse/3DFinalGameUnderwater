@@ -16,7 +16,7 @@ public class StrangerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.O)) {
-			GetComponentInChildren<StrangerHeadScript> ().StartShakeHead ();
+			GetComponentInChildren<StrangerHeadScript> ().StartShakeHead (moveDuration);
 			StartCoroutine (Move ());
 		}
 	}

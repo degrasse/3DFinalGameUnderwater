@@ -24,8 +24,8 @@ public class StrangerHeadScript : MonoBehaviour {
 		*/
 	}
 
-	public void StartShakeHead(){
-		StartCoroutine (ShakeHead (20.0f));
+	public void StartShakeHead(float duration){
+		StartCoroutine (ShakeHead (duration));
 	}
 
 	IEnumerator BobHead(float duration){
