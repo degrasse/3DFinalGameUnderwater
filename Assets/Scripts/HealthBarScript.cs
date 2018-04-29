@@ -20,7 +20,7 @@ public class HealthBarScript : MonoBehaviour {
 	void Awake (){
 		oxyTracker = GameObject.Find ("OxygenTracker");
 		oxyTrackerScript = oxyTracker.GetComponent<OxygenTrackerScript> ();
-		oxyTrackerScript.resetOxygen (); //DELETE
+	
 
 	}
 
