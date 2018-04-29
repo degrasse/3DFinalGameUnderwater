@@ -98,5 +98,12 @@ public class PlayerMovement : MonoBehaviour {
 			gM.HitOxygenTank ();
 			Destroy(coll.gameObject);
 		}
+		if (coll.gameObject.CompareTag ("Pick Up"))
+        {
+        	//add code for infintie oxygen
+            Destroy(coll.gameObject);
+        }
+
 	}
+	
 }

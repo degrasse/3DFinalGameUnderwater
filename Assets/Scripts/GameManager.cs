@@ -86,6 +86,8 @@ public class GameManager : MonoBehaviour {
 		} else if (oxygenLeft > 5) { //oxygen left ranges from 5 to 45 seconds
 			spotLight.spotAngle = ((120f - minLightAngle) * ((oxygenLeft - 5f) / 40f) + minLightAngle); //slowly shrink light angle to minimum light angle
 			if (oxygenLeft <= 15) { //oxygen left ranges from 5 to 15 seconds
+
+
 				spotLight.spotAngle += 5f * Mathf.Sin ((oxygenLeft-15f) * 2); //pulse light angle based on sin wave
 				spotLight.intensity = 3f + 2f * Mathf.Sin ((oxygenLeft-15f)); //pulse intensity
 				if (waveCoroutine == null) { //if wave hasen't started start it
@@ -94,8 +96,13 @@ public class GameManager : MonoBehaviour {
 			}
 		} else if (oxygenLeft > 0.00001) { //oxygen Left ranges from 0.00001 to 5 seconds
 			spotLight.spotAngle = 90f; //set angle to 90
-			spotLight.intensity = .005f; //set intensity very low
-			spotLight.color = new Color(UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256)); //choose random color to flash
+			spotLight.intensity = 3f; //set intensity very low
+			//spotLight.color = new Color(UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256),UnityEngine.Random.Range(0,256)); //choose random color to flash
+			
+			
+
+
+
 		}
 		else { //oxygen left is less than 0
 			if (waveCoroutine != null) { //if the wave is running end and remove it
@@ -107,6 +114,8 @@ public class GameManager : MonoBehaviour {
 
 		}//*/
 	}
+
+
 
 
 	public void TogglePauseMenu() {
