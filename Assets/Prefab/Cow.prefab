@@ -270,4 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6279d83ec64004ab0b248081770c1690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bounceFreq: 2.5
+  bounceHeight: 1.25
   cowMat: {fileID: 2100000, guid: 304e65b431ab7494297f2e3d28b9e1a2, type: 2}
