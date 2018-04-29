@@ -2193,6 +2193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5225b7adf14a54141b2b4b191cd1c34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 1109209122}
   startPos: {x: 153, y: -2, z: 328}
   endPos: {x: 371, y: 1.8, z: 332}
   moveDuration: 16
@@ -3288,6 +3289,21 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8faba1f5a0ad1ac4a80921e7fb6aad98, type: 2}
+    - target: {fileID: 114155117564213066, guid: f589b0c877a9c4a7d995ba6e3eab6ea8,
+        type: 2}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 1109209122}
+    - target: {fileID: 114155117564213066, guid: f589b0c877a9c4a7d995ba6e3eab6ea8,
+        type: 2}
+      propertyPath: bounceFreq
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114155117564213066, guid: f589b0c877a9c4a7d995ba6e3eab6ea8,
+        type: 2}
+      propertyPath: bounceHeight
+      value: 1.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f589b0c877a9c4a7d995ba6e3eab6ea8, type: 2}
   m_IsPrefabParent: 0
