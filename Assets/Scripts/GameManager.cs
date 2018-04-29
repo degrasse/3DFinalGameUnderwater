@@ -30,21 +30,13 @@ public class GameManager : MonoBehaviour {
 
 
 	IEnumerator beginGame(){
-		yield return new WaitForSecondsRealtime (3f); //wait so player has time to look around and see goals
+		yield return new WaitForSecondsRealtime (1f); //pause before treeain rise
 		Time.timeScale = 0f; //stop player movement
 
 		Coroutine raisingTerrain = StartCoroutine(terrScript.RaiseFromFlat()); //raise terrain to put the player in the environment
 		while (terrScript.terrainRaising) {
 			yield return null;
 		}
-		//<------------------------------------------------------------------------------------------------------------CHANGE TO WAIT TIL RAISE IS DONE THEN RESUME
-
-		//<---------------------------ADD DISABLE OXYGEN TANKS
-
-		for (int i = 1; i < oxygenTanks.Length; i++) { //set all tanks but first to 
-			oxygenTanks [i].SetActive (false);
-		}
-
 		Time.timeScale = 1f; //resume time
 	}
 
@@ -139,9 +131,5 @@ public class GameManager : MonoBehaviour {
 
 	public void HitOxygenTank(){ //called on collision with Oxygen tank
 		oxyTrackerScript.resetOxygen();
-		if (currentTank + 1 < oxygenTanks.Length) { //activate next Oxygen tank if it exists
-			oxygenTanks [currentTank + 1].SetActive (true);
-			currentTank++;
-		}
 	}
 }

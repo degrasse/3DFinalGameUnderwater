@@ -8,6 +8,7 @@ public class MenuButtons : MonoBehaviour {
 	public GameObject AudioPanel;
 	public GameObject HelpPanel;
 	public GameObject InstructionPanel;
+	public GameObject InstructionPanel2;
 
 	// Use this for initialization
 	void Start () {
@@ -19,13 +20,16 @@ public class MenuButtons : MonoBehaviour {
 			HelpPanel.SetActive(false);
 		if (InstructionPanel != null)
 			InstructionPanel.SetActive(false);
+		if (InstructionPanel2 != null)
+			InstructionPanel2.SetActive(false);
 	}
 
 
 	public void ShowAudioPanel(){
-		MenuPanel.SetActive (false);
-		AudioPanel.SetActive (true);
-
+		if (AudioPanel != null && MenuPanel != null) {
+			MenuPanel.SetActive (false);
+			AudioPanel.SetActive (true);
+		}
 	}
 
 
