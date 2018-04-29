@@ -10,7 +10,7 @@ public class EncouragementScript : MonoBehaviour {
 
 	string encouragement1 = "youre doing great kiddo\nyour mother and i are so\nproud";
 	string encouragement2 = "youre trying your best\nand thats all that matters\nxoxo mum";
-	string encouragement3 = "whos got two thumbs and\nbelieves in you thats\nright this guy right here";
+	string encouragement3 = "id give you two thumbs\nup if i werent just a disem\nbodied hand sorry im a mess";
 	string[] encs;
 
 	// Use this for initialization
