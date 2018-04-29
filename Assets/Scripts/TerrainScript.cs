@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-
+//small change
 public class TerrainScript : MonoBehaviour {
 
 	public bool readFromFileAutomatically;
@@ -14,6 +14,8 @@ public class TerrainScript : MonoBehaviour {
 	public float waveTimeConstant;
 	public float waveFrequency;
 	public float waveSpeed;
+
+	public int waveRadius;
 
 	public float granularity;
 	public bool terrainRaising;
@@ -82,20 +84,28 @@ public class TerrainScript : MonoBehaviour {
 
 	public IEnumerator Wave(){
 		float waitTime = 1.0f / waveSpeed;
-		int grainSize = Mathf.CeilToInt(1.0f / granularity);
+		//int grainSize = Mathf.CeilToInt(1.0f / granularity);
 		float startTime = Time.time;
 		while (true) {
 			float dTime = Time.time - startTime;
-			float[,] newheights = origHeights.Clone() as float[,];
-			for (int i = 0; i < newheights.GetLength (0) - (grainSize - 1); i+= grainSize) {
+			Vector3 playerPos = playerToTerrainPos ();
+			int istart = (int)Mathf.Max (0, playerPos.x - waveRadius);
+			int iend = (int)Mathf.Min (origHeights.GetLength (0), playerPos.x + waveRadius);
+			int jstart = (int)Mathf.Max (0, playerPos.z - waveRadius);
+			int jend = (int)Mathf.Min (origHeights.GetLength (1), playerPos.z + waveRadius);
+			float[,] newheights = terrain.terrainData.GetHeights (istart, jstart, waveRadius*2, waveRadius*2);
+			for (int i = 0; i < waveRadius*2; i++) {
 				float newheight = (waveAmplitude * Mathf.Sin (waveFrequency * ((i * 1.0f / terrain.terrainData.size.x) + waveTimeConstant * dTime)));
-				for (int j = 0; j < newheights.GetLength (1); j++) {
+				for (int j = 0; j < waveRadius*2; j++) {
+					/*
 					for(int i2 = i; i2 < i + grainSize; i2++){
 						newheights [i2, j] += newheight;// + (waveAmplitude * Mathf.Sin (waveFrequency * ((j * 1.0f / terrain.terrainData.size.x) + waveTimeConstant * dTime)));
 					}
+					*/
+					newheights [i, j] = newheight;
 				}
 			}
-			terrain.terrainData.SetHeights (0, 0, newheights);
+			terrain.terrainData.SetHeights (istart, jstart, newheights);
 			yield return new WaitForSeconds (waitTime);
 		}
 	}
@@ -166,19 +176,26 @@ public class TerrainScript : MonoBehaviour {
 		s.Close ();
 	}
 
-	public void updatePlayerPos(){
+	Vector3 playerToTerrainPos(){
 		Vector3 pos = player.transform.position;
 		Vector3 terrainPos = new Vector3 ();
 		Vector3 terrainOrigin = gameObject.transform.position;
 		if (pos.x < terrainOrigin.x || pos.z < terrainOrigin.z ||
-		   pos.x > terrainOrigin.x + terrainWidth || pos.z > terrainOrigin.z + terrainLength) {
-			return;
+			pos.x > terrainOrigin.x + terrainWidth || pos.z > terrainOrigin.z + terrainLength) {
+			return new Vector3 (0, 0, 0);
 		}
+		terrainPos.x = ((pos.x - terrainOrigin.x) / terrainWidth) * terrain.terrainData.heightmapResolution;
+		terrainPos.z = ((pos.z - terrainOrigin.z) / terrainLength) * terrain.terrainData.heightmapResolution;
+		return terrainPos;
+	}
+
+	public void updatePlayerPos(){
+		Vector3 pos = player.transform.position;
+		Vector3 terrainPos = playerToTerrainPos ();
+		Vector3 terrainOrigin = gameObject.transform.position;
 		float[,] heights = terrain.terrainData.GetHeights (0, 0, 
 			(int)(terrain.terrainData.heightmapResolution),
 			(int)(terrain.terrainData.heightmapResolution));
-		terrainPos.x = ((pos.x - terrainOrigin.x) / terrainWidth) * terrain.terrainData.heightmapResolution;
-		terrainPos.z = ((pos.z - terrainOrigin.z) / terrainLength) * terrain.terrainData.heightmapResolution;
 		//Debug.Log ("(" + Mathf.RoundToInt (terrainPos.x) + ", " + Mathf.RoundToInt (terrainPos.z));
 		//Debug.Log (heights [Mathf.RoundToInt (terrainPos.x), Mathf.RoundToInt (terrainPos.z)]);
 		BoxCollider playerColl = player.GetComponent<BoxCollider>();
