@@ -1,0 +1,948 @@
+fileFormatVersion: 2
+guid: c521faac4633949418ce5efa52d76f9f
+timeCreated: 1525021978
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Group10
+    100002: Group10 1
+    100004: Group11
+    100006: Group11 1
+    100008: Group12
+    100010: Group12 1
+    100012: Group13
+    100014: Group13 1
+    100016: Group14
+    100018: Group14 1
+    100020: Group15
+    100022: Group15 1
+    100024: Group16
+    100026: Group16 1
+    100028: Group17
+    100030: Group17 1
+    100032: Group18
+    100034: Group18 1
+    100036: Group19
+    100038: Group19 1
+    100040: Group2
+    100042: Group2 1
+    100044: Group20
+    100046: Group20 1
+    100048: Group21
+    100050: Group21 1
+    100052: Group22
+    100054: Group22 1
+    100056: Group23
+    100058: Group23 1
+    100060: Group24
+    100062: Group24 1
+    100064: Group25
+    100066: Group25 1
+    100068: Group26
+    100070: Group26 1
+    100072: Group27
+    100074: Group27 1
+    100076: Group28
+    100078: Group28 1
+    100080: Group29
+    100082: Group29 1
+    100084: Group3
+    100086: Group3 1
+    100088: Group30
+    100090: Group30 1
+    100092: Group31
+    100094: Group31 1
+    100096: Group32
+    100098: Group32 1
+    100100: Group33
+    100102: Group33 1
+    100104: Group34
+    100106: Group34 1
+    100108: Group35
+    100110: Group35 1
+    100112: Group36
+    100114: Group36 1
+    100116: Group37
+    100118: Group37 1
+    100120: Group38
+    100122: Group38 1
+    100124: Group39
+    100126: Group39 1
+    100128: Group4
+    100130: Group4 1
+    100132: Group40
+    100134: Group40 1
+    100136: Group41
+    100138: Group41 1
+    100140: Group42
+    100142: Group42 1
+    100144: Group43
+    100146: Group43 1
+    100148: Group44
+    100150: Group44 1
+    100152: Group45
+    100154: Group45 1
+    100156: Group46
+    100158: Group46 1
+    100160: Group47
+    100162: Group47 1
+    100164: Group48
+    100166: Group48 1
+    100168: Group49
+    100170: Group49 1
+    100172: Group5
+    100174: Group5 1
+    100176: Group50
+    100178: Group50 1
+    100180: Group51
+    100182: Group51 1
+    100184: Group52
+    100186: Group52 1
+    100188: Group53
+    100190: Group53 1
+    100192: Group54
+    100194: Group54 1
+    100196: Group55
+    100198: Group55 1
+    100200: Group56
+    100202: Group56 1
+    100204: Group57
+    100206: Group57 1
+    100208: Group58
+    100210: Group58 1
+    100212: Group6
+    100214: Group6 1
+    100216: Group7
+    100218: Group7 1
+    100220: Group8
+    100222: Group8 1
+    100224: Group9
+    100226: Group9 1
+    100228: //RootNode
+    100230: seaweed:Group10
+    100232: seaweed:Group11
+    100234: seaweed:Group12
+    100236: seaweed:Group13
+    100238: seaweed:Group14
+    100240: seaweed:Group15
+    100242: seaweed:Group16
+    100244: seaweed:Group17
+    100246: seaweed:Group18
+    100248: seaweed:Group19
+    100250: seaweed:Group2
+    100252: seaweed:Group20
+    100254: seaweed:Group21
+    100256: seaweed:Group22
+    100258: seaweed:Group23
+    100260: seaweed:Group24
+    100262: seaweed:Group25
+    100264: seaweed:Group26
+    100266: seaweed:Group27
+    100268: seaweed:Group28
+    100270: seaweed:Group29
+    100272: seaweed:Group3
+    100274: seaweed:Group30
+    100276: seaweed:Group31
+    100278: seaweed:Group32
+    100280: seaweed:Group33
+    100282: seaweed:Group34
+    100284: seaweed:Group35
+    100286: seaweed:Group36
+    100288: seaweed:Group37
+    100290: seaweed:Group38
+    100292: seaweed:Group39
+    100294: seaweed:Group4
+    100296: seaweed:Group40
+    100298: seaweed:Group41
+    100300: seaweed:Group42
+    100302: seaweed:Group43
+    100304: seaweed:Group44
+    100306: seaweed:Group45
+    100308: seaweed:Group46
+    100310: seaweed:Group47
+    100312: seaweed:Group48
+    100314: seaweed:Group49
+    100316: seaweed:Group5
+    100318: seaweed:Group50
+    100320: seaweed:Group51
+    100322: seaweed:Group52
+    100324: seaweed:Group53
+    100326: seaweed:Group54
+    100328: seaweed:Group55
+    100330: seaweed:Group56
+    100332: seaweed:Group57
+    100334: seaweed:Group58
+    100336: seaweed:Group6
+    100338: seaweed:Group7
+    100340: seaweed:Group8
+    100342: seaweed:Group9
+    400000: Group10
+    400002: Group10 1
+    400004: Group11
+    400006: Group11 1
+    400008: Group12
+    400010: Group12 1
+    400012: Group13
+    400014: Group13 1
+    400016: Group14
+    400018: Group14 1
+    400020: Group15
+    400022: Group15 1
+    400024: Group16
+    400026: Group16 1
+    400028: Group17
+    400030: Group17 1
+    400032: Group18
+    400034: Group18 1
+    400036: Group19
+    400038: Group19 1
+    400040: Group2
+    400042: Group2 1
+    400044: Group20
+    400046: Group20 1
+    400048: Group21
+    400050: Group21 1
+    400052: Group22
+    400054: Group22 1
+    400056: Group23
+    400058: Group23 1
+    400060: Group24
+    400062: Group24 1
+    400064: Group25
+    400066: Group25 1
+    400068: Group26
+    400070: Group26 1
+    400072: Group27
+    400074: Group27 1
+    400076: Group28
+    400078: Group28 1
+    400080: Group29
+    400082: Group29 1
+    400084: Group3
+    400086: Group3 1
+    400088: Group30
+    400090: Group30 1
+    400092: Group31
+    400094: Group31 1
+    400096: Group32
+    400098: Group32 1
+    400100: Group33
+    400102: Group33 1
+    400104: Group34
+    400106: Group34 1
+    400108: Group35
+    400110: Group35 1
+    400112: Group36
+    400114: Group36 1
+    400116: Group37
+    400118: Group37 1
+    400120: Group38
+    400122: Group38 1
+    400124: Group39
+    400126: Group39 1
+    400128: Group4
+    400130: Group4 1
+    400132: Group40
+    400134: Group40 1
+    400136: Group41
+    400138: Group41 1
+    400140: Group42
+    400142: Group42 1
+    400144: Group43
+    400146: Group43 1
+    400148: Group44
+    400150: Group44 1
+    400152: Group45
+    400154: Group45 1
+    400156: Group46
+    400158: Group46 1
+    400160: Group47
+    400162: Group47 1
+    400164: Group48
+    400166: Group48 1
+    400168: Group49
+    400170: Group49 1
+    400172: Group5
+    400174: Group5 1
+    400176: Group50
+    400178: Group50 1
+    400180: Group51
+    400182: Group51 1
+    400184: Group52
+    400186: Group52 1
+    400188: Group53
+    400190: Group53 1
+    400192: Group54
+    400194: Group54 1
+    400196: Group55
+    400198: Group55 1
+    400200: Group56
+    400202: Group56 1
+    400204: Group57
+    400206: Group57 1
+    400208: Group58
+    400210: Group58 1
+    400212: Group6
+    400214: Group6 1
+    400216: Group7
+    400218: Group7 1
+    400220: Group8
+    400222: Group8 1
+    400224: Group9
+    400226: Group9 1
+    400228: //RootNode
+    400230: seaweed:Group10
+    400232: seaweed:Group11
+    400234: seaweed:Group12
+    400236: seaweed:Group13
+    400238: seaweed:Group14
+    400240: seaweed:Group15
+    400242: seaweed:Group16
+    400244: seaweed:Group17
+    400246: seaweed:Group18
+    400248: seaweed:Group19
+    400250: seaweed:Group2
+    400252: seaweed:Group20
+    400254: seaweed:Group21
+    400256: seaweed:Group22
+    400258: seaweed:Group23
+    400260: seaweed:Group24
+    400262: seaweed:Group25
+    400264: seaweed:Group26
+    400266: seaweed:Group27
+    400268: seaweed:Group28
+    400270: seaweed:Group29
+    400272: seaweed:Group3
+    400274: seaweed:Group30
+    400276: seaweed:Group31
+    400278: seaweed:Group32
+    400280: seaweed:Group33
+    400282: seaweed:Group34
+    400284: seaweed:Group35
+    400286: seaweed:Group36
+    400288: seaweed:Group37
+    400290: seaweed:Group38
+    400292: seaweed:Group39
+    400294: seaweed:Group4
+    400296: seaweed:Group40
+    400298: seaweed:Group41
+    400300: seaweed:Group42
+    400302: seaweed:Group43
+    400304: seaweed:Group44
+    400306: seaweed:Group45
+    400308: seaweed:Group46
+    400310: seaweed:Group47
+    400312: seaweed:Group48
+    400314: seaweed:Group49
+    400316: seaweed:Group5
+    400318: seaweed:Group50
+    400320: seaweed:Group51
+    400322: seaweed:Group52
+    400324: seaweed:Group53
+    400326: seaweed:Group54
+    400328: seaweed:Group55
+    400330: seaweed:Group56
+    400332: seaweed:Group57
+    400334: seaweed:Group58
+    400336: seaweed:Group6
+    400338: seaweed:Group7
+    400340: seaweed:Group8
+    400342: seaweed:Group9
+    2100000: lambert2
+    2100002: lambert3
+    2100004: lambert4
+    2300000: Group10
+    2300002: Group10 1
+    2300004: Group11
+    2300006: Group11 1
+    2300008: Group12
+    2300010: Group12 1
+    2300012: Group13
+    2300014: Group13 1
+    2300016: Group14
+    2300018: Group14 1
+    2300020: Group15
+    2300022: Group15 1
+    2300024: Group16
+    2300026: Group16 1
+    2300028: Group17
+    2300030: Group17 1
+    2300032: Group18
+    2300034: Group18 1
+    2300036: Group19
+    2300038: Group19 1
+    2300040: Group2
+    2300042: Group2 1
+    2300044: Group20
+    2300046: Group20 1
+    2300048: Group21
+    2300050: Group21 1
+    2300052: Group22
+    2300054: Group22 1
+    2300056: Group23
+    2300058: Group23 1
+    2300060: Group24
+    2300062: Group24 1
+    2300064: Group25
+    2300066: Group25 1
+    2300068: Group26
+    2300070: Group26 1
+    2300072: Group27
+    2300074: Group27 1
+    2300076: Group28
+    2300078: Group28 1
+    2300080: Group29
+    2300082: Group29 1
+    2300084: Group3
+    2300086: Group3 1
+    2300088: Group30
+    2300090: Group30 1
+    2300092: Group31
+    2300094: Group31 1
+    2300096: Group32
+    2300098: Group32 1
+    2300100: Group33
+    2300102: Group33 1
+    2300104: Group34
+    2300106: Group34 1
+    2300108: Group35
+    2300110: Group35 1
+    2300112: Group36
+    2300114: Group36 1
+    2300116: Group37
+    2300118: Group37 1
+    2300120: Group38
+    2300122: Group38 1
+    2300124: Group39
+    2300126: Group39 1
+    2300128: Group4
+    2300130: Group4 1
+    2300132: Group40
+    2300134: Group40 1
+    2300136: Group41
+    2300138: Group41 1
+    2300140: Group42
+    2300142: Group42 1
+    2300144: Group43
+    2300146: Group43 1
+    2300148: Group44
+    2300150: Group44 1
+    2300152: Group45
+    2300154: Group45 1
+    2300156: Group46
+    2300158: Group46 1
+    2300160: Group47
+    2300162: Group47 1
+    2300164: Group48
+    2300166: Group48 1
+    2300168: Group49
+    2300170: Group49 1
+    2300172: Group5
+    2300174: Group5 1
+    2300176: Group50
+    2300178: Group50 1
+    2300180: Group51
+    2300182: Group51 1
+    2300184: Group52
+    2300186: Group52 1
+    2300188: Group53
+    2300190: Group53 1
+    2300192: Group54
+    2300194: Group54 1
+    2300196: Group55
+    2300198: Group55 1
+    2300200: Group56
+    2300202: Group56 1
+    2300204: Group57
+    2300206: Group57 1
+    2300208: Group58
+    2300210: Group58 1
+    2300212: Group6
+    2300214: Group6 1
+    2300216: Group7
+    2300218: Group7 1
+    2300220: Group8
+    2300222: Group8 1
+    2300224: Group9
+    2300226: Group9 1
+    2300228: seaweed:Group10
+    2300230: seaweed:Group11
+    2300232: seaweed:Group12
+    2300234: seaweed:Group13
+    2300236: seaweed:Group14
+    2300238: seaweed:Group15
+    2300240: seaweed:Group16
+    2300242: seaweed:Group17
+    2300244: seaweed:Group18
+    2300246: seaweed:Group19
+    2300248: seaweed:Group2
+    2300250: seaweed:Group20
+    2300252: seaweed:Group21
+    2300254: seaweed:Group22
+    2300256: seaweed:Group23
+    2300258: seaweed:Group24
+    2300260: seaweed:Group25
+    2300262: seaweed:Group26
+    2300264: seaweed:Group27
+    2300266: seaweed:Group28
+    2300268: seaweed:Group29
+    2300270: seaweed:Group3
+    2300272: seaweed:Group30
+    2300274: seaweed:Group31
+    2300276: seaweed:Group32
+    2300278: seaweed:Group33
+    2300280: seaweed:Group34
+    2300282: seaweed:Group35
+    2300284: seaweed:Group36
+    2300286: seaweed:Group37
+    2300288: seaweed:Group38
+    2300290: seaweed:Group39
+    2300292: seaweed:Group4
+    2300294: seaweed:Group40
+    2300296: seaweed:Group41
+    2300298: seaweed:Group42
+    2300300: seaweed:Group43
+    2300302: seaweed:Group44
+    2300304: seaweed:Group45
+    2300306: seaweed:Group46
+    2300308: seaweed:Group47
+    2300310: seaweed:Group48
+    2300312: seaweed:Group49
+    2300314: seaweed:Group5
+    2300316: seaweed:Group50
+    2300318: seaweed:Group51
+    2300320: seaweed:Group52
+    2300322: seaweed:Group53
+    2300324: seaweed:Group54
+    2300326: seaweed:Group55
+    2300328: seaweed:Group56
+    2300330: seaweed:Group57
+    2300332: seaweed:Group58
+    2300334: seaweed:Group6
+    2300336: seaweed:Group7
+    2300338: seaweed:Group8
+    2300340: seaweed:Group9
+    3300000: Group10
+    3300002: Group10 1
+    3300004: Group11
+    3300006: Group11 1
+    3300008: Group12
+    3300010: Group12 1
+    3300012: Group13
+    3300014: Group13 1
+    3300016: Group14
+    3300018: Group14 1
+    3300020: Group15
+    3300022: Group15 1
+    3300024: Group16
+    3300026: Group16 1
+    3300028: Group17
+    3300030: Group17 1
+    3300032: Group18
+    3300034: Group18 1
+    3300036: Group19
+    3300038: Group19 1
+    3300040: Group2
+    3300042: Group2 1
+    3300044: Group20
+    3300046: Group20 1
+    3300048: Group21
+    3300050: Group21 1
+    3300052: Group22
+    3300054: Group22 1
+    3300056: Group23
+    3300058: Group23 1
+    3300060: Group24
+    3300062: Group24 1
+    3300064: Group25
+    3300066: Group25 1
+    3300068: Group26
+    3300070: Group26 1
+    3300072: Group27
+    3300074: Group27 1
+    3300076: Group28
+    3300078: Group28 1
+    3300080: Group29
+    3300082: Group29 1
+    3300084: Group3
+    3300086: Group3 1
+    3300088: Group30
+    3300090: Group30 1
+    3300092: Group31
+    3300094: Group31 1
+    3300096: Group32
+    3300098: Group32 1
+    3300100: Group33
+    3300102: Group33 1
+    3300104: Group34
+    3300106: Group34 1
+    3300108: Group35
+    3300110: Group35 1
+    3300112: Group36
+    3300114: Group36 1
+    3300116: Group37
+    3300118: Group37 1
+    3300120: Group38
+    3300122: Group38 1
+    3300124: Group39
+    3300126: Group39 1
+    3300128: Group4
+    3300130: Group4 1
+    3300132: Group40
+    3300134: Group40 1
+    3300136: Group41
+    3300138: Group41 1
+    3300140: Group42
+    3300142: Group42 1
+    3300144: Group43
+    3300146: Group43 1
+    3300148: Group44
+    3300150: Group44 1
+    3300152: Group45
+    3300154: Group45 1
+    3300156: Group46
+    3300158: Group46 1
+    3300160: Group47
+    3300162: Group47 1
+    3300164: Group48
+    3300166: Group48 1
+    3300168: Group49
+    3300170: Group49 1
+    3300172: Group5
+    3300174: Group5 1
+    3300176: Group50
+    3300178: Group50 1
+    3300180: Group51
+    3300182: Group51 1
+    3300184: Group52
+    3300186: Group52 1
+    3300188: Group53
+    3300190: Group53 1
+    3300192: Group54
+    3300194: Group54 1
+    3300196: Group55
+    3300198: Group55 1
+    3300200: Group56
+    3300202: Group56 1
+    3300204: Group57
+    3300206: Group57 1
+    3300208: Group58
+    3300210: Group58 1
+    3300212: Group6
+    3300214: Group6 1
+    3300216: Group7
+    3300218: Group7 1
+    3300220: Group8
+    3300222: Group8 1
+    3300224: Group9
+    3300226: Group9 1
+    3300228: seaweed:Group10
+    3300230: seaweed:Group11
+    3300232: seaweed:Group12
+    3300234: seaweed:Group13
+    3300236: seaweed:Group14
+    3300238: seaweed:Group15
+    3300240: seaweed:Group16
+    3300242: seaweed:Group17
+    3300244: seaweed:Group18
+    3300246: seaweed:Group19
+    3300248: seaweed:Group2
+    3300250: seaweed:Group20
+    3300252: seaweed:Group21
+    3300254: seaweed:Group22
+    3300256: seaweed:Group23
+    3300258: seaweed:Group24
+    3300260: seaweed:Group25
+    3300262: seaweed:Group26
+    3300264: seaweed:Group27
+    3300266: seaweed:Group28
+    3300268: seaweed:Group29
+    3300270: seaweed:Group3
+    3300272: seaweed:Group30
+    3300274: seaweed:Group31
+    3300276: seaweed:Group32
+    3300278: seaweed:Group33
+    3300280: seaweed:Group34
+    3300282: seaweed:Group35
+    3300284: seaweed:Group36
+    3300286: seaweed:Group37
+    3300288: seaweed:Group38
+    3300290: seaweed:Group39
+    3300292: seaweed:Group4
+    3300294: seaweed:Group40
+    3300296: seaweed:Group41
+    3300298: seaweed:Group42
+    3300300: seaweed:Group43
+    3300302: seaweed:Group44
+    3300304: seaweed:Group45
+    3300306: seaweed:Group46
+    3300308: seaweed:Group47
+    3300310: seaweed:Group48
+    3300312: seaweed:Group49
+    3300314: seaweed:Group5
+    3300316: seaweed:Group50
+    3300318: seaweed:Group51
+    3300320: seaweed:Group52
+    3300322: seaweed:Group53
+    3300324: seaweed:Group54
+    3300326: seaweed:Group55
+    3300328: seaweed:Group56
+    3300330: seaweed:Group57
+    3300332: seaweed:Group58
+    3300334: seaweed:Group6
+    3300336: seaweed:Group7
+    3300338: seaweed:Group8
+    3300340: seaweed:Group9
+    4300000: seaweed:Group9
+    4300002: seaweed:Group7
+    4300004: seaweed:Group8
+    4300006: seaweed:Group34
+    4300008: seaweed:Group33
+    4300010: seaweed:Group32
+    4300012: seaweed:Group31
+    4300014: seaweed:Group30
+    4300016: seaweed:Group29
+    4300018: seaweed:Group28
+    4300020: seaweed:Group27
+    4300022: seaweed:Group26
+    4300024: seaweed:Group25
+    4300026: seaweed:Group24
+    4300028: seaweed:Group23
+    4300030: seaweed:Group22
+    4300032: seaweed:Group21
+    4300034: seaweed:Group20
+    4300036: seaweed:Group19
+    4300038: seaweed:Group15
+    4300040: seaweed:Group14
+    4300042: seaweed:Group13
+    4300044: seaweed:Group12
+    4300046: seaweed:Group11
+    4300048: seaweed:Group10
+    4300050: seaweed:Group18
+    4300052: seaweed:Group17
+    4300054: seaweed:Group16
+    4300056: seaweed:Group2
+    4300058: seaweed:Group3
+    4300060: seaweed:Group6
+    4300062: seaweed:Group4
+    4300064: seaweed:Group5
+    4300066: seaweed:Group58
+    4300068: seaweed:Group57
+    4300070: seaweed:Group56
+    4300072: seaweed:Group55
+    4300074: seaweed:Group54
+    4300076: seaweed:Group53
+    4300078: seaweed:Group52
+    4300080: seaweed:Group51
+    4300082: seaweed:Group50
+    4300084: seaweed:Group49
+    4300086: seaweed:Group48
+    4300088: seaweed:Group47
+    4300090: seaweed:Group46
+    4300092: seaweed:Group45
+    4300094: seaweed:Group44
+    4300096: seaweed:Group43
+    4300098: seaweed:Group42
+    4300100: seaweed:Group41
+    4300102: seaweed:Group40
+    4300104: seaweed:Group39
+    4300106: seaweed:Group38
+    4300108: seaweed:Group37
+    4300110: seaweed:Group36
+    4300112: seaweed:Group35
+    4300114: Group9
+    4300116: Group7
+    4300118: Group8
+    4300120: Group34
+    4300122: Group33
+    4300124: Group32
+    4300126: Group31
+    4300128: Group30
+    4300130: Group29
+    4300132: Group28
+    4300134: Group27
+    4300136: Group26
+    4300138: Group25
+    4300140: Group24
+    4300142: Group23
+    4300144: Group22
+    4300146: Group21
+    4300148: Group20
+    4300150: Group19
+    4300152: Group15
+    4300154: Group14
+    4300156: Group13
+    4300158: Group12
+    4300160: Group11
+    4300162: Group10
+    4300164: Group18
+    4300166: Group17
+    4300168: Group16
+    4300170: Group2
+    4300172: Group3
+    4300174: Group6
+    4300176: Group4
+    4300178: Group5
+    4300180: Group58
+    4300182: Group57
+    4300184: Group56
+    4300186: Group55
+    4300188: Group54
+    4300190: Group53
+    4300192: Group52
+    4300194: Group51
+    4300196: Group50
+    4300198: Group49
+    4300200: Group48
+    4300202: Group47
+    4300204: Group46
+    4300206: Group45
+    4300208: Group44
+    4300210: Group43
+    4300212: Group42
+    4300214: Group41
+    4300216: Group40
+    4300218: Group39
+    4300220: Group38
+    4300222: Group37
+    4300224: Group36
+    4300226: Group35
+    4300228: Group9
+    4300230: Group7
+    4300232: Group8
+    4300234: Group34
+    4300236: Group33
+    4300238: Group32
+    4300240: Group31
+    4300242: Group30
+    4300244: Group29
+    4300246: Group28
+    4300248: Group27
+    4300250: Group26
+    4300252: Group25
+    4300254: Group24
+    4300256: Group23
+    4300258: Group22
+    4300260: Group21
+    4300262: Group20
+    4300264: Group19
+    4300266: Group15
+    4300268: Group14
+    4300270: Group13
+    4300272: Group12
+    4300274: Group11
+    4300276: Group10
+    4300278: Group18
+    4300280: Group17
+    4300282: Group16
+    4300284: Group2
+    4300286: Group3
+    4300288: Group6
+    4300290: Group4
+    4300292: Group5
+    4300294: Group58
+    4300296: Group57
+    4300298: Group56
+    4300300: Group55
+    4300302: Group54
+    4300304: Group53
+    4300306: Group52
+    4300308: Group51
+    4300310: Group50
+    4300312: Group49
+    4300314: Group48
+    4300316: Group47
+    4300318: Group46
+    4300320: Group45
+    4300322: Group44
+    4300324: Group43
+    4300326: Group42
+    4300328: Group41
+    4300330: Group40
+    4300332: Group39
+    4300334: Group38
+    4300336: Group37
+    4300338: Group36
+    4300340: Group35
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
