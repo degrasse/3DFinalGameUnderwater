@@ -10,19 +10,29 @@ public class HealthBarScript : MonoBehaviour {
 	private float fullScale = 5.3f;
 	private float minScale = 0f;
 
-	//need to grab oxygen percentage from oxygen object
+	private GameObject oxyTracker;
+	private OxygenTrackerScript oxyTrackerScript;
+
+	/***********************************************/
 
 
-	// Update is called once per frame
+	void Awake (){
+		
+		oxyTracker = GameObject.Find ("OxygenTracker");
+		oxyTrackerScript = oxyTracker.GetComponent<OxygenTrackerScript> ();
+		oxyTrackerScript.resetOxygen (); //DELETE
+
+	}
+
+
 	void Update () {
 		UpdateSlider ();
 
 	}
-
-	//max scale = 5.3
-
+		
 	private float checkOxygen (){
 
+		oxygen = oxyTrackerScript.percentOxygen;
 		if (oxygen >= 1) {
 			updatedScale = fullScale;
 		} else if (oxygen <= 0) {
@@ -32,7 +42,6 @@ public class HealthBarScript : MonoBehaviour {
 		}
 
 		return updatedScale;
-
 	}
 
 
