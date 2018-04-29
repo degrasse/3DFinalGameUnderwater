@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-
+//small change
 public class TerrainScript : MonoBehaviour {
 
 	public bool readFromFileAutomatically;
