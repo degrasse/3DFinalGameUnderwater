@@ -53,7 +53,7 @@ public class soundEffectClass : MonoBehaviour {
 		source = GetComponent<AudioSource>();
 		oxyTracker = GameObject.Find ("OxygenTracker");
 		oxyTrackerScript = oxyTracker.GetComponent<OxygenTrackerScript> ();
-		oxyTrackerScript.resetOxygen (); //DELETE
+
 	
 
 	}
