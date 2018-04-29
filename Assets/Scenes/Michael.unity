@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -148,6 +148,7 @@ MonoBehaviour:
   waveTimeConstant: 0.01
   waveFrequency: 600
   waveSpeed: 10
+  waveRadius: 16
   granularity: 0.5
   terrainRaising: 0
 --- !u!154 &22926455
@@ -246,6 +247,25 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a33addde62b5d45978e23cf97989d8ac, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &206416241 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1238506735352670, guid: a33addde62b5d45978e23cf97989d8ac,
+    type: 2}
+  m_PrefabInternal: {fileID: 206416240}
+--- !u!114 &206416242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 206416241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5225b7adf14a54141b2b4b191cd1c34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startPos: {x: -100, y: 0, z: -4.1}
+  endPos: {x: -35, y: 0, z: -6}
+  moveDuration: 5
 --- !u!1 &424234400 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1778424595462518, guid: 10df1e65a8ee640f0a64ee4a1aa292dd,
