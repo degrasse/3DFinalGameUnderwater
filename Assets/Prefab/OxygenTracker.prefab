@@ -54,3 +54,4 @@ MonoBehaviour:
   oxygenLeft: 0
   initOxygen: 90
   percentOxygen: 0
+  timeAfterOxygen: 7
