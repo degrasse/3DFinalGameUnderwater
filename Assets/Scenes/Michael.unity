@@ -148,6 +148,7 @@ MonoBehaviour:
   waveTimeConstant: 0.01
   waveFrequency: 600
   waveSpeed: 10
+  waveRadius: 0
   granularity: 0.5
   terrainRaising: 0
 --- !u!154 &22926455
@@ -531,6 +532,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbee402432bef4310b97d9104ecee13e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1477386568 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1451653360213782, guid: cbee402432bef4310b97d9104ecee13e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1477386567}
+--- !u!114 &1477386569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1477386568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c1903b6463e4765bd4120ba9ad4b7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 0}
 --- !u!1001 &1740375510
 Prefab:
   m_ObjectHideFlags: 0
