@@ -8,26 +8,21 @@ public class MenuButtons : MonoBehaviour {
 	public GameObject AudioPanel;
 	public GameObject HelpPanel;
 	public GameObject InstructionPanel;
-	public GameObject InstructionPanel2;
 
 	// Use this for initialization
-	void Start () { //set only menu panel to visible
-		if (MenuPanel != null)
-			MenuPanel.SetActive (true);
-		if (AudioPanel != null)
-			AudioPanel.SetActive(false);
-		if (HelpPanel != null)
-			HelpPanel.SetActive(false);
-		if (InstructionPanel != null)
-			InstructionPanel.SetActive(false);
-		if (InstructionPanel2 != null)
-			InstructionPanel2.SetActive(false);
+	void Start () {
+		MenuPanel.SetActive (true);
+		AudioPanel.SetActive(false);
+		HelpPanel.SetActive(false);
+		InstructionPanel.SetActive(false);
 	}
 
-	public void ShowAudioPanel(){ //show audio panle and remove menu panel
-		if (AudioPanel != null && MenuPanel != null) {
-			MenuPanel.SetActive (false);
-			AudioPanel.SetActive (true);
-		}
+
+	public void ShowAudioPanel(){
+		MenuPanel.SetActive (false);
+		AudioPanel.SetActive (true);
+
 	}
+
+
 }
